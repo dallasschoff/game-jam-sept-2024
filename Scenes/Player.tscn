@@ -1,12 +1,28 @@
-[gd_scene load_steps=43 format=3 uid="uid://cxael5qe6iwgb"]
+[gd_scene load_steps=42 format=3 uid="uid://cxael5qe6iwgb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_27vp4"]
-[ext_resource type="Texture2D" uid="uid://cpuhrku5osy5d" path="res://Assets/Player Character.png" id="2_fwory"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="3_ckkkh"]
-[ext_resource type="Script" path="res://Scripts/light.gd" id="4_gw3ag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imtor"]
 size = Vector2(16, 16)
+
+[sub_resource type="GDScript" id="GDScript_mgjpx"]
+script/source = "extends PointLight2D
+
+var tween
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="Animation" id="Animation_hc0sj"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_cvegu"]
 resource_name = "idle_down"
@@ -18,17 +34,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [0]
+"values": []
 }
 
-[sub_resource type="Animation" id="Animation_hc0sj"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_7w1vb"]
-resource_name = "idle_up"
+[sub_resource type="Animation" id="Animation_k4djv"]
+resource_name = "idle_down_left"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -40,51 +53,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_cotcq"]
-resource_name = "idle_right"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_xpena"]
-resource_name = "idle_left"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
+"values": [1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -127,8 +96,8 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_qvbq5"]
-resource_name = "idle_up_right"
+[sub_resource type="Animation" id="Animation_xpena"]
+resource_name = "idle_left"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -140,7 +109,35 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cotcq"]
+resource_name = "idle_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -155,8 +152,8 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_k4djv"]
-resource_name = "idle_down_left"
+[sub_resource type="Animation" id="Animation_7w1vb"]
+resource_name = "idle_up"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -168,19 +165,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_sju2f"]
@@ -208,6 +193,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qvbq5"]
+resource_name = "idle_up_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ctyp"]
@@ -366,14 +379,14 @@ shape = SubResource("RectangleShape2D_imtor")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_fwory")
 flip_h = true
-hframes = 5
+hframes = 4
+vframes = 2
 frame = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("3_ckkkh")
-script = ExtResource("4_gw3ag")
+script = SubResource("GDScript_mgjpx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
