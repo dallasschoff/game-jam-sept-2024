@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cen3bo7smyowk"]
+
+[ext_resource type="FontFile" uid="uid://cj67ya4clbesy" path="res://Assets/Fonts/HandymandiFree.ttf" id="1_k5q5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnhx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wuqvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iydon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clowj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7a82"]
+
+[resource]
+default_font = ExtResource("1_k5q5m")
+default_font_size = 16
+Button/colors/font_color = Color(0.772549, 0.227451, 0.615686, 1)
+Button/colors/font_focus_color = Color(1, 0.556863, 0.501961, 1)
+Button/colors/font_hover_color = Color(1, 0.556863, 0.501961, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_jnhx0")
+Button/styles/focus = SubResource("StyleBoxEmpty_wuqvo")
+Button/styles/hover = SubResource("StyleBoxEmpty_iydon")
+Button/styles/normal = SubResource("StyleBoxEmpty_clowj")
+Button/styles/pressed = SubResource("StyleBoxEmpty_m7a82")
+Label/colors/font_color = Color(0.772549, 0.227451, 0.615686, 1)
