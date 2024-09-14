@@ -401,6 +401,12 @@ script = ExtResource("1_27vp4")
 shape = SubResource("RectangleShape2D_imtor")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 320
+limit_bottom = 288
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -410,6 +416,9 @@ hframes = 4
 vframes = 5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+blend_mode = 2
+shadow_enabled = true
 texture = ExtResource("3_ckkkh")
 script = SubResource("GDScript_mgjpx")
 
