@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+varying float flicker;
 varying vec2 world_position;
 uniform vec2 player_position;
 
@@ -37,13 +38,27 @@ void vertex() {
 void fragment() {
 	
 	vec2 wpUV = world_position.xy;
-	float radius = 40.5;
+	flicker = sin(TIME*2.0)*1.0;
+	float radius = flicker + 30.0;
+	float radius2 = flicker + 34.0;
+	float radius3 = flicker + 38.0;
 	
 	COLOR = blue; //vec4(0.02,0.122,0.224,1);
 	// Called for every pixel the material is visible on.
+	if (distance(wpUV,player_position) < radius3 && ((mod(wpUV.x - player_position.x,2.0)<1.0)&&(mod(wpUV.y - player_position.y,2.0))<1.0)) {
+		COLOR = vec4(1,1,1,0);
+	}
+	
+	//if (distance(wpUV,player_position) < radius2 && (mod((wpUV.x - wpUV.y + player_position.x - player_position.y),3)<1.0)) {
+	if (distance(wpUV,player_position) < radius2 && ((mod(wpUV.x - player_position.x,2.0)<1.0) || (mod(wpUV.y - player_position.y,2.0))<1.0)) {
+		COLOR = vec4(1,1,1,0);
+	}
+	
 	if (distance(wpUV,player_position) < radius) {
 		COLOR = vec4(1,1,1,0);
 	}
+	
+	
 	
 	//switch (colorMatch(COLOR)) {
 		//case 1:
@@ -66,4 +81,4 @@ void fragment() {
 //void light() {
 	// Called for every pixel for every light affecting the CanvasItem.
 	// Uncomment to replace the default light processing function with this one.
-//
+//}
