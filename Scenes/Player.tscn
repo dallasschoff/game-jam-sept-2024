@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b1twmx6f1n01h" path="res://Assets/Player Character Idles.png" id="2_0v03s"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="3_ckkkh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_imtor"]
-size = Vector2(16, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60mlg"]
+radius = 5.0
+height = 14.5
 
 [sub_resource type="GDScript" id="GDScript_mgjpx"]
 script/source = "extends PointLight2D
@@ -398,7 +399,7 @@ graph_offset = Vector2(-250.227, 18.123)
 script = ExtResource("1_27vp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_imtor")
+shape = SubResource("CapsuleShape2D_60mlg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
