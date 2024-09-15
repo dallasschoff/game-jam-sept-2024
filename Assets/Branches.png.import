@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b66kwjwgn3o5e"
-path="res://.godot/imported/Level v1.1.png-8f583a135ce1b0f6e3749a38fb836b9f.ctex"
+uid="uid://be6ey5ln2dned"
+path="res://.godot/imported/Branches.png-73ffa3ec48085f2749e738c58a3aba4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level v1.1.png"
-dest_files=["res://.godot/imported/Level v1.1.png-8f583a135ce1b0f6e3749a38fb836b9f.ctex"]
+source_file="res://Assets/Branches.png"
+dest_files=["res://.godot/imported/Branches.png-73ffa3ec48085f2749e738c58a3aba4d.ctex"]
 
 [params]
 

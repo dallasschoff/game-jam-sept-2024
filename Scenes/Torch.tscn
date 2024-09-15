@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0bxdlrhk4p65"]
+
+[ext_resource type="Texture2D" uid="uid://b4pk5gi46p0s2" path="res://Assets/Torch.png" id="1_ydjkl"]
+[ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="2_o0xhe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrnfq"]
+atlas = ExtResource("1_ydjkl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jadq"]
+atlas = ExtResource("1_ydjkl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljjy7"]
+atlas = ExtResource("1_ydjkl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85r6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrnfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jadq")
+}],
+"loop": false,
+"name": &"burning",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljjy7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjrpf"]
+radius = 9.0
+
+[node name="Torch" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_85r6a")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qjrpf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 6)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0.0196078, 0.121569, 0.223529, 1)
+texture = ExtResource("2_o0xhe")

@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://bd3hvjnplaeqs"]
+
+[ext_resource type="Texture2D" uid="uid://be6ey5ln2dned" path="res://Assets/Branches.png" id="1_luy8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4oqi"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12wiw"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muy0b"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2edj"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsh3s"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tebs"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt06o"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvijr"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmwmp"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yyxi"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1skd"]
+atlas = ExtResource("1_luy8v")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4i4l8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4oqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12wiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muy0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2edj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsh3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tebs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt06o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvijr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmwmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yyxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1skd")
+}],
+"loop": false,
+"name": &"burning",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ec1h"]
+size = Vector2(10, 49)
+
+[node name="Branches" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4i4l8")
+animation = &"burning"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_8ec1h")
