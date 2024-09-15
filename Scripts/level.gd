@@ -17,7 +17,7 @@ func _process(delta):
 
 func create_pulse(pulse_position : Vector2):
 	shaderMat.set_shader_parameter("pulse_position", pulse_position)
-	shaderMat.set_shader_parameter("pulse_frame", Engine.get_process_frames())
+	shaderMat.set_shader_parameter("start_frame", Engine.get_process_frames())
 	var pulse = PulseScene.instantiate()
 	pulse.position = pulse_position
 	add_child(pulse)

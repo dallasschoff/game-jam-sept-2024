@@ -48,11 +48,12 @@ void fragment() {
 	float radius = flicker + 30.0;
 	float radius2 = flicker + 34.0;
 	float radius3 = flicker + 38.0;
-	float max_radius = 20.0;
+	float max_radius = 40.0;
 	float frame_diff = current_frame-start_frame;
-	float pulse_radius1 = min(frame_diff, max_radius);
-	float pulse_radius2 = min(frame_diff, max_radius);
-	float pulse_radius3 = min(frame_diff, max_radius);
+	float pulse_scaler = 5.5;
+	float pulse_radius1 = min(frame_diff/pulse_scaler, max_radius);
+	float pulse_radius2 = min(frame_diff/pulse_scaler, max_radius+4.0);
+	float pulse_radius3 = min(frame_diff/pulse_scaler, max_radius+8.0);
 	
 	COLOR = blue; //vec4(0.02,0.122,0.224,1);
 	// Called for every pixel the material is visible on.
