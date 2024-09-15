@@ -95,13 +95,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_opm51")
 sources/1 = SubResource("TileSetAtlasSource_xj2hr")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xoxwq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyg3m"]
 shader = ExtResource("6_efhxh")
-shader_parameter/player_position = null
-shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
-shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
-shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
-shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_6lvft")
@@ -133,14 +128,13 @@ z_index = 1
 position = Vector2(52, 45)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_xoxwq")
+material = SubResource("ShaderMaterial_uyg3m")
 offset_left = -36.0
 offset_top = -22.0
 offset_right = 416.0
 offset_bottom = 363.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 clip_children = 1
 color = Color(0.0196078, 0.121569, 0.223529, 1)
 
