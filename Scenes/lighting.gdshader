@@ -6,6 +6,7 @@ uniform vec2 player_position;
 uniform vec2 pulse_position;
 uniform float start_frame;
 uniform float current_frame;
+uniform float pulseSpeed;
 
 uniform vec4 blue = vec4(0.02,0.122,0.224,1);
 uniform vec4 purple = vec4(0.29,0.141,0.502,1);
@@ -45,32 +46,33 @@ void fragment() {
 	
 	vec2 wpUV = world_position.xy;
 	flicker = sin(TIME*2.0)*1.0;
-	float radius = flicker + 30.0;
-	float radius2 = flicker + 34.0;
-	float radius3 = flicker + 38.0;
+	float player_radius = flicker + 30.0;
+	float player_radius2 = flicker + 34.0;
+	float player_radius3 = flicker + 38.0;
 	float max_radius = 40.0;
 	float frame_diff = current_frame-start_frame;
-	float pulse_scaler = 5.5;
-	float pulse_radius1 = min(frame_diff/pulse_scaler, max_radius);
-	float pulse_radius2 = min(frame_diff/pulse_scaler, max_radius+4.0);
-	float pulse_radius3 = min(frame_diff/pulse_scaler, max_radius+8.0);
+	float pulse_radius1 = min(frame_diff/pulseSpeed, flicker + max_radius);
+	float pulse_radius2 = min(frame_diff/pulseSpeed, flicker + max_radius+4.0);
+	float pulse_radius3 = min(frame_diff/pulseSpeed, flicker + max_radius+8.0);
 	
 	COLOR = blue; //vec4(0.02,0.122,0.224,1);
-	// Called for every pixel the material is visible on.
-	//if (distance(wpUV,player_position) < radius3 && ((mod(wpUV.x - player_position.x,2.0)<1.0)&&(mod(wpUV.y - player_position.y,2.0))<1.0)) {
-		//COLOR = vec4(1,1,1,0);
-	//}
-	//
-	////if (distance(wpUV,player_position) < radius2 && (mod((wpUV.x - wpUV.y + player_position.x - player_position.y),3)<1.0)) {
-	//if (distance(wpUV,player_position) < radius2 && ((mod(wpUV.x - player_position.x,2.0)<1.0) || (mod(wpUV.y - player_position.y,2.0))<1.0)) {
-		//COLOR = vec4(1,1,1,0);
-	//}
-	//
-	//if (distance(wpUV,player_position) < radius) {
-		//COLOR = vec4(1,1,1,0);
-	//}
 	
-	//Pulse Code
+	// PLayer light---------------------------------
+	if (distance(wpUV,player_position) < player_radius3 && ((mod(wpUV.x - player_position.x,2.0)<1.0)&&(mod(wpUV.y - player_position.y,2.0))<1.0)) {
+		COLOR = vec4(1,1,1,0);
+	}
+	
+	//if (distance(wpUV,player_position) < radius2 && (mod((wpUV.x - wpUV.y + player_position.x - player_position.y),3)<1.0)) {
+	if (distance(wpUV,player_position) < player_radius2 && ((mod(wpUV.x - player_position.x,2.0)<1.0) || (mod(wpUV.y - player_position.y,2.0))<1.0)) {
+		COLOR = vec4(1,1,1,0);
+	}
+	
+	if (distance(wpUV,player_position) < player_radius) {
+		COLOR = vec4(1,1,1,0);
+	}
+	//--------------------------------------------
+	
+	//Pulse light------------------------------------
 	if (distance(wpUV,pulse_position) < pulse_radius3 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
 		COLOR = vec4(1,1,1,0);
 	}
@@ -82,6 +84,8 @@ void fragment() {
 	if (distance(wpUV,pulse_position) < pulse_radius1) {
 		COLOR = vec4(1,1,1,0);
 	}
+	//-------------------------------------------------
+	
 	//switch (colorMatch(COLOR)) {
 		//case 1:
 			//COLOR = blue;

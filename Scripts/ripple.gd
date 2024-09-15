@@ -1,13 +1,14 @@
 extends Node2D
 
 @export var end_radius = 30.0
-@export var ripple_modulo = 12
+# To find correct number: ratio of modulo and speed should be ratio or 12 / 5 (modulo / pulseSpeed)
+@export var rippleSpeedModulo = 12
 var radius: float = 1.0
 
 func _process(delta):
 	if (radius == end_radius):
 		queue_free()
-	if (Engine.get_process_frames() % ripple_modulo == 0):
+	if (Engine.get_process_frames() % rippleSpeedModulo == 0):
 		print("draw")
 		radius += 1
 		queue_redraw()

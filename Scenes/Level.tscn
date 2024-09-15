@@ -103,6 +103,7 @@ shader_parameter/player_position = null
 shader_parameter/pulse_position = null
 shader_parameter/start_frame = null
 shader_parameter/current_frame = null
+shader_parameter/pulseSpeed = null
 shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
 shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
