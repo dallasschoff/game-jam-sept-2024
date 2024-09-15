@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=13 format=3 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
 [ext_resource type="Texture2D" uid="uid://betnyy03ey3jw" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="4_7j71m"]
+[ext_resource type="Shader" path="res://Scenes/lighting.gdshader" id="6_efhxh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opm51"]
 resource_name = "Collision"
@@ -30,7 +33,7 @@ use_texture_padding = false
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
-4:2/0/modulate = Color(0, 1, 1, 0)
+4:2/0/modulate = Color(1, 1, 1, 0)
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:2/0 = 0
 6:2/0 = 0
@@ -92,10 +95,19 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_opm51")
 sources/1 = SubResource("TileSetAtlasSource_xj2hr")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xoxwq"]
+shader = ExtResource("6_efhxh")
+shader_parameter/player_position = null
+shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
+shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
+shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
+shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_6lvft")
 
 [node name="Level Ground" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_o7thr")
 position = Vector2(160, 144)
 texture = ExtResource("2_cu7n0")
 
@@ -126,9 +138,17 @@ use_kinematic_bodies = true
 z_index = 1
 position = Vector2(52, 45)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xoxwq")
+offset_left = -36.0
+offset_top = -22.0
+offset_right = 416.0
+offset_bottom = 363.0
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 clip_children = 1
-color = Color(0.0509804, 0.117647, 0.211765, 1)
+color = Color(0.0196078, 0.121569, 0.223529, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(296, 24)
