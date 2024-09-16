@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=14 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
 [ext_resource type="Texture2D" uid="uid://betnyy03ey3jw" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
+[ext_resource type="PackedScene" uid="uid://dut0nb0k5wwce" path="res://Scenes/Pulse.tscn" id="2_ucbpd"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="4_7j71m"]
 [ext_resource type="Shader" path="res://Scenes/lighting.gdshader" id="6_efhxh"]
@@ -91,6 +92,7 @@ texture = ExtResource("3_cglan")
 
 [sub_resource type="TileSet" id="TileSet_prjya"]
 occlusion_layer_0/light_mask = 1
+occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_opm51")
 sources/1 = SubResource("TileSetAtlasSource_xj2hr")
@@ -98,6 +100,7 @@ sources/1 = SubResource("TileSetAtlasSource_xj2hr")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xoxwq"]
 shader = ExtResource("6_efhxh")
 shader_parameter/player_position = null
+shader_parameter/pulse_position = null
 shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
 shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
@@ -105,6 +108,7 @@ shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_6lvft")
+PulseScene = ExtResource("2_ucbpd")
 
 [node name="Level Ground" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_o7thr")
@@ -151,7 +155,19 @@ clip_children = 1
 color = Color(0.0196078, 0.121569, 0.223529, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(296, 24)
 blend_mode = 2
 shadow_enabled = true
+texture = ExtResource("4_7j71m")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(230, 46)
+scale = Vector2(2, 2)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0.02, 0.122, 0.224, 1)
+shadow_filter_smooth = 29.0
 texture = ExtResource("4_7j71m")

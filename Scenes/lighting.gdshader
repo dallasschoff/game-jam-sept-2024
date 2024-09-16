@@ -3,6 +3,7 @@ shader_type canvas_item;
 varying float flicker;
 varying vec2 world_position;
 uniform vec2 player_position;
+uniform vec2 pulse_position;
 
 uniform vec4 blue = vec4(0.02,0.122,0.224,1);
 uniform vec4 purple = vec4(0.29,0.141,0.502,1);
@@ -58,7 +59,18 @@ void fragment() {
 		COLOR = vec4(1,1,1,0);
 	}
 	
+	//Pulse Code
+	if (distance(wpUV,pulse_position) < radius3 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
+		COLOR = vec4(1,1,1,0);
+	}
 	
+	if (distance(wpUV,pulse_position) < radius2 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0) || (mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
+		COLOR = vec4(1,1,1,0);
+	}
+	
+	if (distance(wpUV,pulse_position) < radius) {
+		COLOR = vec4(1,1,1,0);
+	}
 	
 	//switch (colorMatch(COLOR)) {
 		//case 1:

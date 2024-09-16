@@ -5,9 +5,10 @@ var light_radius = 20
 var tween
 @onready var animation_tree: AnimationTree = $AnimationTree
 var direction
+signal create_pulse(pulse_position)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	light = $PointLight2D
 	animation_tree.active = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,11 +17,10 @@ func _process(delta):
 	
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
-	velocity = direction * 100
+	velocity = direction * 50
 	move_and_slide()
 	if Input.is_action_just_pressed("a_button"):
-		tween = get_tree().create_tween()
-		tween.tween_property(light, "position", Vector2(light.position.x - 100, light.position.y), 5)
+		create_pulse.emit(position)
 
 func update_animation_parameters():
 	animation_tree["parameters/conditions/idle"] = true if velocity == Vector2.ZERO else false
