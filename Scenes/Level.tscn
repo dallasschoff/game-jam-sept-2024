@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=19 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
 [ext_resource type="Texture2D" uid="uid://b66kwjwgn3o5e" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
+[ext_resource type="PackedScene" uid="uid://dut0nb0k5wwce" path="res://Scenes/Pulse.tscn" id="2_lljsl"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="4_7j71m"]
 [ext_resource type="Shader" path="res://Scenes/lighting.gdshader" id="6_efhxh"]
@@ -121,7 +122,7 @@ shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_6lvft")
-PulseScene = ExtResource("2_ucbpd")
+PulseScene = ExtResource("2_lljsl")
 
 [node name="Level Ground" type="Sprite2D" parent="."]
 z_index = -1
@@ -200,6 +201,7 @@ shadow_enabled = true
 shadow_color = Color(0.02, 0.122, 0.224, 1)
 shadow_filter_smooth = 29.0
 texture = ExtResource("4_7j71m")
+
 [node name="Branches" parent="." instance=ExtResource("7_1xo5u")]
 position = Vector2(144, 249)
 
