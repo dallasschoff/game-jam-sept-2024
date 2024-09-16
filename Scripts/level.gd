@@ -7,7 +7,7 @@ var shaderMat
 @export var PulseScene: PackedScene
 # To find correct number: ratio of modulo and speed should be ratio or 12 / 5 (modulo / pulseSpeed)
 @export var pulseSpeed = 5.5;
-
+#var lit_torches : Array[Vector2]
 
 func _ready():
 	shaderMat = shader.material
@@ -18,6 +18,7 @@ func _ready():
 func _process(delta):
 	shaderMat.set_shader_parameter("player_position", player.position)
 	shaderMat.set_shader_parameter("current_frame", Engine.get_process_frames())
+	#update_lit_torches()
 
 func create_pulse(pulse_position : Vector2):
 	shaderMat.set_shader_parameter("pulse_position", pulse_position)
@@ -25,3 +26,9 @@ func create_pulse(pulse_position : Vector2):
 	var pulse = PulseScene.instantiate()
 	pulse.position = pulse_position
 	add_child(pulse)
+
+#func update_lit_torches():
+	#lit_torches.clear()
+	#var torches = get_tree().get_nodes_in_group("Lit Torches")
+	#for torch in torches:
+		#lit_torches.push_back(torch.lit)

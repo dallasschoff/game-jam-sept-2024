@@ -7,6 +7,7 @@ uniform vec2 pulse_position;
 uniform float start_frame;
 uniform float current_frame;
 uniform float pulseSpeed;
+uniform vec2[5] 
 
 uniform vec4 blue = vec4(0.02,0.122,0.224,1);
 uniform vec4 purple = vec4(0.29,0.141,0.502,1);

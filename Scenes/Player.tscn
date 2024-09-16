@@ -4,10 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://2qlchujhoe8r" path="res://Assets/Player Character Animations.png" id="2_icvvm"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="3_ckkkh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60mlg"]
-radius = 5.0
-height = 14.5
-
 [sub_resource type="GDScript" id="GDScript_mgjpx"]
 script/source = "extends PointLight2D
 
@@ -624,11 +620,12 @@ states/walk/position = Vector2(564, 198)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_21xbe"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_xils0"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_tss1h"), "idle", "pulse", SubResource("AnimationNodeStateMachineTransition_hovpb"), "pulse", "idle", SubResource("AnimationNodeStateMachineTransition_4pjfw"), "walk", "pulse", SubResource("AnimationNodeStateMachineTransition_pl5bg"), "pulse", "walk", SubResource("AnimationNodeStateMachineTransition_ygch8")]
 graph_offset = Vector2(-250.227, 58.2743)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60mlg"]
+radius = 5.0
+height = 14.5
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_27vp4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_60mlg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
@@ -669,3 +666,13 @@ parameters/conditions/pulse = false
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/pulse/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(-0.00460124, -0.0145375)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_60mlg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_60mlg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
