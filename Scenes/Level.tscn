@@ -101,6 +101,8 @@ sources/1 = SubResource("TileSetAtlasSource_xj2hr")
 shader = ExtResource("6_efhxh")
 shader_parameter/player_position = null
 shader_parameter/pulse_position = null
+shader_parameter/start_frame = null
+shader_parameter/current_frame = null
 shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
 shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
@@ -111,6 +113,7 @@ script = ExtResource("1_6lvft")
 PulseScene = ExtResource("2_ucbpd")
 
 [node name="Level Ground" type="Sprite2D" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_o7thr")
 position = Vector2(160, 144)
 texture = ExtResource("2_cu7n0")
@@ -139,7 +142,6 @@ tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-z_index = 1
 position = Vector2(52, 45)
 
 [node name="ColorRect" type="ColorRect" parent="."]

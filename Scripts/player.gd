@@ -27,7 +27,6 @@ func update_animation_parameters():
 	animation_tree["parameters/conditions/is_walking"] = true if velocity != Vector2.ZERO else false
 	animation_tree["parameters/conditions/pulse"] = true if Input.is_action_just_pressed("a_button") else false	
 	
-	print(direction)
 	if (direction != Vector2.ZERO):
 		animation_tree["parameters/idle/blend_position"] = direction
 		animation_tree["parameters/walk/blend_position"] = direction

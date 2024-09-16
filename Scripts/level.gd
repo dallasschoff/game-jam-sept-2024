@@ -13,12 +13,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	shaderMat.set_shader_parameter("player_position", player.position)
+	shaderMat.set_shader_parameter("current_frame", Engine.get_process_frames())
 
 func create_pulse(pulse_position : Vector2):
 	shaderMat.set_shader_parameter("pulse_position", pulse_position)
+	shaderMat.set_shader_parameter("pulse_frame", Engine.get_process_frames())
 	var pulse = PulseScene.instantiate()
 	pulse.position = pulse_position
 	add_child(pulse)
-	
-#func _draw():
-	#draw_arc(player.position, 10.0, )

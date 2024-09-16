@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dut0nb0k5wwce"]
+[gd_scene load_steps=7 format=3 uid="uid://dut0nb0k5wwce"]
 
+[ext_resource type="Script" path="res://Scripts/pulse.gd" id="1_0sk0e"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="1_twbk2"]
+[ext_resource type="Script" path="res://Scripts/ripple.gd" id="3_80qi5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vuth7"]
 
@@ -22,12 +24,12 @@ func _process(delta):
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwpu6"]
 
 [node name="Pulse" type="Node2D"]
+script = ExtResource("1_0sk0e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vuth7")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-z_index = -1
 scale = Vector2(2, 2)
 blend_mode = 2
 shadow_enabled = true
@@ -40,3 +42,7 @@ script = SubResource("GDScript_1ixh4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vwpu6")
+
+[node name="Ripple" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("3_80qi5")
