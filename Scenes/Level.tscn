@@ -174,7 +174,6 @@ use_kinematic_bodies = true
 position = Vector2(52, 45)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0
