@@ -180,6 +180,7 @@ use_kinematic_bodies = true
 position = Vector2(52, 45)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0
@@ -209,16 +210,16 @@ texture = ExtResource("4_7j71m")
 position = Vector2(144, 249)
 
 [node name="Torch" parent="." instance=ExtResource("8_ri31f")]
-position = Vector2(144, 40)
+position = Vector2(144, 50)
 
 [node name="Torch2" parent="." instance=ExtResource("8_ri31f")]
-position = Vector2(268, 40)
+position = Vector2(268, 50)
 
 [node name="Torch3" parent="." instance=ExtResource("8_ri31f")]
-position = Vector2(268, 158)
+position = Vector2(268, 168)
 
 [node name="Torch4" parent="." instance=ExtResource("8_ri31f")]
-position = Vector2(144, 157)
+position = Vector2(144, 167)
 
 [node name="Torch5" parent="." instance=ExtResource("8_ri31f")]
-position = Vector2(74, 205)
+position = Vector2(74, 215)

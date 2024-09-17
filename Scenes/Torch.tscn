@@ -44,10 +44,11 @@ radius = 9.0
 [node name="Torch" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_85r6a")
 animation = &"burning"
+offset = Vector2(0, -10)
 script = ExtResource("2_d0c7t")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_qjrpf")
