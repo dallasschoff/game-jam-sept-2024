@@ -1,4 +1,5 @@
 extends Node2D
+class_name Ripple
 
 @export var end_radius = 30.0
 # To find correct number: ratio of modulo and speed should be ratio or 12 / 5 (modulo / pulseSpeed)

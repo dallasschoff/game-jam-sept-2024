@@ -3,13 +3,14 @@ shader_type canvas_item;
 varying float flicker;
 varying vec2 world_position;
 uniform vec2 player_position;
-uniform vec2 pulse_position;
 uniform float start_frame;
 uniform float current_frame;
 uniform float pulseSpeed;
-uniform vec2[5] torch_positions;
-uniform bool[5] torch_states;
-uniform float[5] torch_start_frames;
+const int torch_count = 100;
+uniform vec2[torch_count] torch_positions;
+uniform bool[torch_count] torch_states;
+uniform float[torch_count] torch_start_frames;
+uniform vec2[2] pulse_positions;
 
 uniform vec4 blue = vec4(0.02,0.122,0.224,1);
 uniform vec4 purple = vec4(0.29,0.141,0.502,1);
@@ -61,7 +62,7 @@ void fragment() {
 
 	COLOR = blue; //vec4(0.02,0.122,0.224,1);
 
-	// PLayer light---------------------------------
+	// Player light---------------------------------
 	if (distance(wpUV,player_position) < player_radius3 && ((mod(wpUV.x - player_position.x,2.0)<1.0)&&(mod(wpUV.y - player_position.y,2.0))<1.0)) {
 		COLOR = vec4(1,1,1,0);
 	}
@@ -77,22 +78,40 @@ void fragment() {
 	//--------------------------------------------
 
 	//Pulse light------------------------------------
-	if (distance(wpUV,pulse_position) < pulse_radius3 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
-		COLOR = vec4(1,1,1,0);
-	}
+	for (int i = 0; i < pulse_positions.length(); i++) {
+		vec2 pulse_position = pulse_positions[i];
+		if (i == 0) {
+			if (distance(wpUV,pulse_position) < (flicker + max_radius+8.0) && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
+				COLOR = vec4(1,1,1,0);
+			}
 
-	if (distance(wpUV,pulse_position) < pulse_radius2 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0) || (mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
-		COLOR = vec4(1,1,1,0);
-	}
+			if (distance(wpUV,pulse_position) < (flicker + max_radius+4.0) && ((mod(wpUV.x - pulse_position.x,2.0)<1.0) || (mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
+				COLOR = vec4(1,1,1,0);
+			}
 
-	if (distance(wpUV,pulse_position) < pulse_radius1) {
-		COLOR = vec4(1,1,1,0);
+			if (distance(wpUV,pulse_position) < (flicker + max_radius)) {
+				COLOR = vec4(1,1,1,0);
+			}
+		} else {
+			if (distance(wpUV,pulse_position) < pulse_radius3 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
+				COLOR = vec4(1,1,1,0);
+			}
+
+			if (distance(wpUV,pulse_position) < pulse_radius2 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0) || (mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
+				COLOR = vec4(1,1,1,0);
+			}
+
+			if (distance(wpUV,pulse_position) < pulse_radius1) {
+				COLOR = vec4(1,1,1,0);
+			}
+		}
 	}
+	
 	//-------------------------------------------------
 
 	//Lit Torch light
 	//Show through the color rect if a torch's state is lit (true)
-	for (int i = 0; i < torch_positions.length(); i++) {
+	for (int i = 0; i < torch_count; i++) {
 		if (torch_states[i] == true) {
 			vec2 torch_position = torch_positions[i];
 			float torch_frame_diff = current_frame - torch_start_frames[i];

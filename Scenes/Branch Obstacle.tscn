@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bd3hvjnplaeqs"]
+[gd_scene load_steps=16 format=3 uid="uid://bd3hvjnplaeqs"]
 
 [ext_resource type="Texture2D" uid="uid://be6ey5ln2dned" path="res://Assets/Branches.png" id="1_luy8v"]
+[ext_resource type="Script" path="res://Scripts/branch_obstacle.gd" id="2_kswmq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4oqi"]
 atlas = ExtResource("1_luy8v")
@@ -93,9 +94,18 @@ size = Vector2(10, 49)
 [node name="Branches" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_4i4l8")
 animation = &"burning"
+script = ExtResource("2_kswmq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_8ec1h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(1, 28, -5, 26, -11, 12, -3, 3, -4, -13, 7, -22, 11, -16, 4, 1)
+
+[connection signal="animation_finished" from="." to="." method="_on_burn_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

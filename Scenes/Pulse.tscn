@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dut0nb0k5wwce"]
+[gd_scene load_steps=16 format=3 uid="uid://dut0nb0k5wwce"]
 
 [ext_resource type="Script" path="res://Scripts/pulse.gd" id="1_0sk0e"]
-[ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="1_twbk2"]
 [ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_i6asb"]
 [ext_resource type="Script" path="res://Scripts/ripple.gd" id="3_80qi5"]
 
@@ -76,21 +75,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_1ixh4"]
-script/source = "extends PointLight2D
-
-var tween
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwpu6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ve05l"]
@@ -102,16 +86,6 @@ script = ExtResource("1_0sk0e")
 sprite_frames = SubResource("SpriteFrames_vuth7")
 animation = &"pulse_ground_fire"
 frame_progress = 0.575841
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-scale = Vector2(2, 2)
-blend_mode = 2
-shadow_enabled = true
-shadow_color = Color(0.02, 0.122, 0.224, 1)
-shadow_filter_smooth = 29.0
-texture = ExtResource("1_twbk2")
-script = SubResource("GDScript_1ixh4")
 
 [node name="Area2D" type="Area2D" parent="."]
 
