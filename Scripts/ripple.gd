@@ -10,7 +10,6 @@ func _process(delta):
 	if (radius == end_radius):
 		queue_free()
 	if (Engine.get_process_frames() % rippleSpeedModulo == 0):
-		print("draw")
 		radius += 1
 		queue_redraw()
 		if (collision.shape.radius != end_radius):

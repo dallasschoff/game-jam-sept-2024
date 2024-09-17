@@ -110,6 +110,18 @@ sources/1 = SubResource("TileSetAtlasSource_xj2hr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xoxwq"]
 shader = ExtResource("6_efhxh")
+shader_parameter/player_position = null
+shader_parameter/pulse_position = null
+shader_parameter/start_frame = null
+shader_parameter/current_frame = null
+shader_parameter/pulseSpeed = null
+shader_parameter/torch_positions = null
+shader_parameter/torch_states = null
+shader_parameter/torch_start_frames = null
+shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
+shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
+shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
+shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 
 [node name="Level" type="Node2D" groups=["Torches"]]
 script = ExtResource("1_6lvft")

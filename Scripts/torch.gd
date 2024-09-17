@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 class_name Torch
 
 @export var lit = false
+@export var start_frame : float = 0.0
 @onready var torch_light = $PointLight2D
 
 func _ready():
@@ -16,3 +17,4 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	lit = true
 	torch_light.enabled = true
+	start_frame = Engine.get_process_frames()
