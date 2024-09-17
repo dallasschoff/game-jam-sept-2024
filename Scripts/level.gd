@@ -42,8 +42,8 @@ func update_torches():
 	level_torches.remove_at(0)
 	var i = 0
 	for torch in level_torches:
-		if (len(torch_states) == 5 and torch.start_frame > 0.0):
-			torch_start_frames[i] = torch.start_frame
+		if (torch.start_frame > 0.0):
+			torch_start_frames.push_back(torch.start_frame)
 		else:
 			torch_start_frames.push_back(0)
 		torch_states.insert(i, torch.lit)

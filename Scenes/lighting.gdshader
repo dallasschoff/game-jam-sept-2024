@@ -49,9 +49,10 @@ void fragment() {
 	
 	vec2 wpUV = world_position.xy;
 	flicker = sin(TIME*2.0)*1.0;
-	float player_radius = flicker + 30.0;
-	float player_radius2 = flicker + 34.0;
-	float player_radius3 = flicker + 38.0;
+	float base_player_radius = 15.0;
+	float player_radius = flicker + base_player_radius;
+	float player_radius2 = flicker + base_player_radius + 4.0;
+	float player_radius3 = flicker + base_player_radius + 8.0;
 	float max_radius = 40.0;
 	float frame_diff = current_frame-start_frame;
 	float pulse_radius1 = min(frame_diff/pulseSpeed, flicker + max_radius);
@@ -94,15 +95,10 @@ void fragment() {
 	for (int i = 0; i < torch_positions.length() - 1; i++) {
 		if (torch_states[i] == true) {
 			vec2 torch_position = torch_positions[i];
-			float torch_radius1 = flicker + max_radius;
-			float torch_radius2 = flicker + max_radius+4.0;
-			float torch_radius3 = flicker + max_radius+8.0;
-			if (torch_start_frames[i] > 4.0) {
-				float torch_frame_diff = current_frame - torch_start_frames[i];
-				float torch_radius1 = min(torch_frame_diff/pulseSpeed, flicker + max_radius);
-				float torch_radius2 = min(torch_frame_diff/pulseSpeed, flicker + max_radius+4.0);
-				float torch_radius3 = min(torch_frame_diff/pulseSpeed, flicker + max_radius+8.0);
-			}
+			float torch_frame_diff = current_frame - torch_start_frames[i];
+			float torch_radius1 = min(torch_frame_diff/pulseSpeed, flicker + max_radius);
+			float torch_radius2 = min(torch_frame_diff/pulseSpeed, flicker + max_radius+4.0);
+			float torch_radius3 = min(torch_frame_diff/pulseSpeed, flicker + max_radius+8.0);
 			if (distance(wpUV,torch_position) < torch_radius3 && ((mod(wpUV.x - torch_position.x,2.0)<1.0)&&(mod(wpUV.y - torch_position.y,2.0))<1.0)) {
 				COLOR = vec4(1,1,1,0);
 			}
