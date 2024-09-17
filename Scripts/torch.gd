@@ -15,6 +15,7 @@ func _process(delta):
 
 #When another body (player or pulse) enters a torch's area2d, the torch should be lit
 func _on_area_2d_area_entered(area):
-	lit = true
-	torch_light.enabled = true
-	start_frame = Engine.get_process_frames()
+	if lit == false:
+		lit = true
+		torch_light.enabled = true
+		start_frame = Engine.get_process_frames()

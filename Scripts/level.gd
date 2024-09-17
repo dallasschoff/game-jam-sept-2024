@@ -17,6 +17,7 @@ func _ready():
 	shaderMat = shader.material
 	player.connect("create_pulse", create_pulse)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
+	shaderMat.set_shader_parameter("pulse_position", Vector2(-500,-500))
 
 func _process(delta):
 	shaderMat.set_shader_parameter("player_position", player.position)

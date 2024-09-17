@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Texture2D" uid="uid://5wn2fl7rpxb6" path="res://Assets/GBJam_12_Light_Texture.png" id="4_7j71m"]
 [ext_resource type="Shader" path="res://Scenes/lighting.gdshader" id="6_efhxh"]
-[ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
+[ext_resource type="PackedScene" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
@@ -221,4 +221,4 @@ position = Vector2(268, 158)
 position = Vector2(144, 157)
 
 [node name="Torch5" parent="." instance=ExtResource("8_ri31f")]
-position = Vector2(120, 248)
+position = Vector2(74, 205)

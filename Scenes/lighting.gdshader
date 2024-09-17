@@ -46,7 +46,7 @@ void vertex() {
 }
 
 void fragment() {
-	
+
 	vec2 wpUV = world_position.xy;
 	flicker = sin(TIME*2.0)*1.0;
 	float base_player_radius = 15.0;
@@ -58,47 +58,47 @@ void fragment() {
 	float pulse_radius1 = min(frame_diff/pulseSpeed, flicker + max_radius);
 	float pulse_radius2 = min(frame_diff/pulseSpeed, flicker + max_radius+4.0);
 	float pulse_radius3 = min(frame_diff/pulseSpeed, flicker + max_radius+8.0);
-	
+
 	COLOR = blue; //vec4(0.02,0.122,0.224,1);
-	
+
 	// PLayer light---------------------------------
 	if (distance(wpUV,player_position) < player_radius3 && ((mod(wpUV.x - player_position.x,2.0)<1.0)&&(mod(wpUV.y - player_position.y,2.0))<1.0)) {
 		COLOR = vec4(1,1,1,0);
 	}
-	
+
 	//if (distance(wpUV,player_position) < radius2 && (mod((wpUV.x - wpUV.y + player_position.x - player_position.y),3)<1.0)) {
 	if (distance(wpUV,player_position) < player_radius2 && ((mod(wpUV.x - player_position.x,2.0)<1.0) || (mod(wpUV.y - player_position.y,2.0))<1.0)) {
 		COLOR = vec4(1,1,1,0);
 	}
-	
+
 	if (distance(wpUV,player_position) < player_radius) {
 		COLOR = vec4(1,1,1,0);
 	}
 	//--------------------------------------------
-	
+
 	//Pulse light------------------------------------
 	if (distance(wpUV,pulse_position) < pulse_radius3 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
 		COLOR = vec4(1,1,1,0);
 	}
-	
+
 	if (distance(wpUV,pulse_position) < pulse_radius2 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0) || (mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
 		COLOR = vec4(1,1,1,0);
 	}
-	
+
 	if (distance(wpUV,pulse_position) < pulse_radius1) {
 		COLOR = vec4(1,1,1,0);
 	}
 	//-------------------------------------------------
-	
+
 	//Lit Torch light
 	//Show through the color rect if a torch's state is lit (true)
-	for (int i = 0; i < torch_positions.length() - 1; i++) {
+	for (int i = 0; i < torch_positions.length(); i++) {
 		if (torch_states[i] == true) {
 			vec2 torch_position = torch_positions[i];
 			float torch_frame_diff = current_frame - torch_start_frames[i];
 			float torch_radius1 = min(torch_frame_diff/pulseSpeed, flicker + max_radius);
-			float torch_radius2 = min(torch_frame_diff/pulseSpeed, flicker + max_radius+4.0);
-			float torch_radius3 = min(torch_frame_diff/pulseSpeed, flicker + max_radius+8.0);
+			float torch_radius2 = min(torch_frame_diff/pulseSpeed, flicker + max_radius)+4.0;
+			float torch_radius3 = min(torch_frame_diff/pulseSpeed, flicker + max_radius)+8.0;
 			if (distance(wpUV,torch_position) < torch_radius3 && ((mod(wpUV.x - torch_position.x,2.0)<1.0)&&(mod(wpUV.y - torch_position.y,2.0))<1.0)) {
 				COLOR = vec4(1,1,1,0);
 			}
@@ -110,7 +110,7 @@ void fragment() {
 			}
 		}
 	}
-	
+
 	//switch (colorMatch(COLOR)) {
 		//case 1:
 			//COLOR = blue;
