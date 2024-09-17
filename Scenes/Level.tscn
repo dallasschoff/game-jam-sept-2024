@@ -12,7 +12,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7hxw5"]
-polygon = PackedVector2Array(80, 91, 238.092, 113.171, 244, 102, 244, 114, 244, 121.298, 244, 132, 238, 119, 80, 97)
+polygon = PackedVector2Array(80, 91, 238.092, 113.171, 244, 102, 244, 114, 244, 121.298, 244, 132, 238, 119, 82.9506, 97.4109, 80, 104)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lbj7w"]
 polygon = PackedVector2Array(139, 214, 139, 203, 143.796, 213.331, 304, 191, 304, 197, 147, 219, 139, 232, 139, 226)
@@ -170,9 +170,6 @@ tile_map_data = PackedByteArray("AAAEAAAAAAAEAAIAAAADAAAAAAAEAAIAAAACAAAAAAAEAAI
 tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
-[node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-position = Vector2(52, 45)
-
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
@@ -198,3 +195,6 @@ position = Vector2(144, 167)
 
 [node name="Torch5" parent="." instance=ExtResource("8_ri31f")]
 position = Vector2(74, 215)
+
+[node name="Player" parent="." instance=ExtResource("2_6mnp7")]
+position = Vector2(52, 45)
