@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
 [ext_resource type="Texture2D" uid="uid://b66kwjwgn3o5e" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
-[ext_resource type="PackedScene" uid="uid://dut0nb0k5wwce" path="res://Scenes/Pulse.tscn" id="2_lljsl"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_lp5n6"]
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
@@ -124,9 +123,11 @@ shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
 shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejhw0"]
+size = Vector2(6, 32)
+
 [node name="Level" type="Node2D" groups=["Burnables", "Pulses"]]
 script = ExtResource("1_6lvft")
-PulseScene = ExtResource("2_lljsl")
 
 [node name="Level Ground" type="Sprite2D" parent="."]
 z_index = -1
@@ -200,3 +201,12 @@ position = Vector2(74, 215)
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
 position = Vector2(52, 45)
+
+[node name="Level End" type="Area2D" parent="."]
+position = Vector2(286, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level End"]
+position = Vector2(6, 8)
+shape = SubResource("RectangleShape2D_ejhw0")
+
+[connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]

@@ -1,8 +1,11 @@
 extends Node2D
 
+signal level_over
+var levelOne: PackedScene = load("res://Scenes/Level.tscn")
 @onready var player = $Player
 @onready var shader = $ColorRect
-@export var PulseScene: PackedScene
+@onready var level_end = $"Level End"
+var PulseScene: PackedScene = load("res://Scenes/Pulse.tscn")
 # To find correct number: ratio of modulo and speed should be ratio or 12 / 5 (modulo / pulseSpeed)
 @export var pulseSpeed = 5.5
 
@@ -58,3 +61,8 @@ func update_burnables():
 		burnable_start_frames.push_back(burnable.start_frame)
 		burnable_radii.push_back(burnable.burn_radius)
 		burnable_glow_speeds.push_back(burnable.glow_speed)
+
+
+func _on_level_end_area_entered(area):
+	if area.get_parent() is Player:
+		get_tree().change_scene_to_packed(levelOne)

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 signal create_pulse(pulse_position)
 
@@ -22,7 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	update_animation_parameters()
+	update_animation_parameters()		
 	
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
