@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=28 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
+[ext_resource type="Texture2D" uid="uid://cnrhbsa3stld5" path="res://Assets/Door Animations.png" id="9_xknww"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
@@ -127,6 +129,52 @@ shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejhw0"]
 size = Vector2(6, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cut77"]
+atlas = ExtResource("9_xknww")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elon7"]
+atlas = ExtResource("9_xknww")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmr6m"]
+atlas = ExtResource("9_xknww")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm3ta"]
+atlas = ExtResource("9_xknww")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltoka"]
+atlas = ExtResource("9_xknww")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6pb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cut77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elon7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmr6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm3ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltoka")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71qlx"]
+size = Vector2(31.2988, 1.21738)
+
 [node name="Level" type="Node2D" groups=["Burnables", "Pulses"]]
 script = ExtResource("1_6lvft")
 pulseSpeed = 2.75
@@ -207,7 +255,7 @@ position = Vector2(74, 215)
 position = Vector2(212, 256)
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-position = Vector2(52, 45)
+position = Vector2(192, 239)
 
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(286, 222)
@@ -218,5 +266,20 @@ shape = SubResource("RectangleShape2D_ejhw0")
 
 [node name="Totem" parent="." instance=ExtResource("9_0rysw")]
 position = Vector2(248, 210)
+animation = &"default"
+
+[node name="Door" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(274, 236)
+sprite_frames = SubResource("SpriteFrames_g6pb8")
+animation = &"open"
+script = ExtResource("10_k06c7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(3, 3)
+rotation = 0.483456
+shape = SubResource("RectangleShape2D_71qlx")
 
 [connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]

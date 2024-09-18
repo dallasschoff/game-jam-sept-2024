@@ -223,11 +223,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t805a"]
-size = Vector2(26, 24)
+size = Vector2(26, 25.379)
 
 [node name="Totem" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_6dohl")
-animation = &"reverse_start_burning"
+animation = &"burning"
 script = ExtResource("2_lxllc")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -235,7 +235,8 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 8)
+position = Vector2(0.0455859, 8.84194)
+rotation = 0.483456
 shape = SubResource("RectangleShape2D_t805a")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
