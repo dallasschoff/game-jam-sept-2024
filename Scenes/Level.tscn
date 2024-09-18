@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=29 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
 [ext_resource type="Texture2D" uid="uid://cnrhbsa3stld5" path="res://Assets/Door Animations.png" id="9_xknww"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
+[ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
@@ -255,7 +256,7 @@ position = Vector2(74, 215)
 position = Vector2(212, 256)
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-position = Vector2(192, 239)
+position = Vector2(49, 45)
 
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(286, 222)
@@ -281,5 +282,8 @@ script = ExtResource("10_k06c7")
 position = Vector2(3, 3)
 rotation = 0.483456
 shape = SubResource("RectangleShape2D_71qlx")
+
+[node name="DoorOpenSound" type="AudioStreamPlayer2D" parent="Door"]
+stream = ExtResource("11_3q7vl")
 
 [connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]
