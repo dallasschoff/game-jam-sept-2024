@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b66kwjwgn3o5e" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
 [ext_resource type="PackedScene" uid="uid://dut0nb0k5wwce" path="res://Scenes/Pulse.tscn" id="2_lljsl"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
-[ext_resource type="Shader" path="res://Scenes/lighting.gdshader" id="6_efhxh"]
+[ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_lp5n6"]
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 
@@ -108,21 +108,23 @@ sources/0 = SubResource("TileSetAtlasSource_opm51")
 sources/1 = SubResource("TileSetAtlasSource_xj2hr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xoxwq"]
-shader = ExtResource("6_efhxh")
+shader = ExtResource("5_lp5n6")
 shader_parameter/player_position = null
 shader_parameter/start_frame = null
 shader_parameter/current_frame = null
 shader_parameter/pulseSpeed = null
-shader_parameter/torch_positions = null
-shader_parameter/torch_states = null
-shader_parameter/torch_start_frames = null
+shader_parameter/burnable_positions = null
+shader_parameter/burnable_states = null
+shader_parameter/burnable_start_frames = null
+shader_parameter/burnable_radii = null
+shader_parameter/burnable_glow_speeds = null
 shader_parameter/pulse_positions = null
 shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
 shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
 shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 
-[node name="Level" type="Node2D" groups=["Pulses", "Torches"]]
+[node name="Level" type="Node2D" groups=["Burnables", "Pulses"]]
 script = ExtResource("1_6lvft")
 PulseScene = ExtResource("2_lljsl")
 

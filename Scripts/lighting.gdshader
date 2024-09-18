@@ -6,10 +6,12 @@ uniform vec2 player_position;
 uniform float start_frame;
 uniform float current_frame;
 uniform float pulseSpeed;
-const int torch_count = 100;
-uniform vec2[torch_count] torch_positions;
-uniform bool[torch_count] torch_states;
-uniform float[torch_count] torch_start_frames;
+const int burnable_count = 100;
+uniform vec2[burnable_count] burnable_positions;
+uniform bool[burnable_count] burnable_states;
+uniform float[burnable_count] burnable_start_frames;
+uniform float[burnable_count] burnable_radii;
+uniform float[burnable_count] burnable_glow_speeds;
 uniform vec2[2] pulse_positions;
 
 uniform vec4 blue = vec4(0.02,0.122,0.224,1);
@@ -109,22 +111,21 @@ void fragment() {
 	
 	//-------------------------------------------------
 
-	//Lit Torch light
-	//Show through the color rect if a torch's state is lit (true)
-	for (int i = 0; i < torch_count; i++) {
-		if (torch_states[i] == true) {
-			vec2 torch_position = torch_positions[i];
-			float torch_frame_diff = current_frame - torch_start_frames[i];
-			float torch_radius1 = min(torch_frame_diff/pulseSpeed, flicker + max_radius);
-			float torch_radius2 = min(torch_frame_diff/pulseSpeed, flicker + max_radius)+4.0;
-			float torch_radius3 = min(torch_frame_diff/pulseSpeed, flicker + max_radius)+8.0;
-			if (distance(wpUV,torch_position) < torch_radius3 && ((mod(wpUV.x - torch_position.x,2.0)<1.0)&&(mod(wpUV.y - torch_position.y,2.0))<1.0)) {
+	//Burnable lights
+	for (int i = 0; i < burnable_count; i++) {
+		if (burnable_states[i] == true) {
+			vec2 burnable_position = burnable_positions[i];
+			float burnable_frame_diff = current_frame - burnable_start_frames[i];
+			float burnable_radius1 = min(burnable_frame_diff/burnable_glow_speeds[i], flicker + burnable_radii[i]);
+			float burnable_radius2 = min(burnable_frame_diff/burnable_glow_speeds[i], flicker + burnable_radii[i])+4.0;
+			float burnable_radius3 = min(burnable_frame_diff/burnable_glow_speeds[i], flicker + burnable_radii[i])+8.0;
+			if (distance(wpUV,burnable_position) < burnable_radius3 && ((mod(wpUV.x - burnable_position.x,2.0)<1.0)&&(mod(wpUV.y - burnable_position.y,2.0))<1.0)) {
 				COLOR = vec4(1,1,1,0);
 			}
-			if (distance(wpUV,torch_position) < torch_radius2 && ((mod(wpUV.x - torch_position.x,2.0)<1.0) || (mod(wpUV.y - torch_position.y,2.0))<1.0)) {
+			if (distance(wpUV,burnable_position) < burnable_radius2 && ((mod(wpUV.x - burnable_position.x,2.0)<1.0) || (mod(wpUV.y - burnable_position.y,2.0))<1.0)) {
 				COLOR = vec4(1,1,1,0);
 			}
-			if (distance(wpUV,torch_position) < torch_radius1) {
+			if (distance(wpUV,burnable_position) < burnable_radius1) {
 				COLOR = vec4(1,1,1,0);
 			}
 		}

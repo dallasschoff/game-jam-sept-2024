@@ -1,11 +1,13 @@
 extends AnimatedSprite2D
 class_name Torch
 
-@export var lit = false
+var lit = false
 @export var start_frame : float = 0.0
+@export var burn_radius : float = 60.0
+@export var glow_speed : float = 4.0
 
 func _ready():
-	add_to_group("Torches")
+	add_to_group("Burnables")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

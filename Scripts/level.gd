@@ -8,10 +8,12 @@ extends Node2D
 
 var player_position : Vector2;
 var shaderMat
-var torch_positions : Array[Vector2]
-var torch_states : Array[bool]
-var torch_start_frames : Array[float]
 var pulse_positions : Array[Vector2] = [ Vector2(-500, -500), Vector2(-500, -500) ]
+var burnable_positions : Array[Vector2]
+var burnable_states : Array[bool]
+var burnable_start_frames : Array[float]
+var burnable_radii : Array[float]
+var burnable_glow_speeds : Array[float]
 
 func _ready():
 	shaderMat = shader.material
@@ -21,10 +23,12 @@ func _ready():
 func _process(delta):
 	shaderMat.set_shader_parameter("player_position", player.position)
 	shaderMat.set_shader_parameter("current_frame", Engine.get_process_frames())
-	update_torches()
-	shaderMat.set_shader_parameter("torch_states", torch_states)
-	shaderMat.set_shader_parameter("torch_positions", torch_positions)
-	shaderMat.set_shader_parameter("torch_start_frames", torch_start_frames)
+	update_burnables()
+	shaderMat.set_shader_parameter("burnable_positions", burnable_positions)
+	shaderMat.set_shader_parameter("burnable_states", burnable_states)
+	shaderMat.set_shader_parameter("burnable_start_frames", burnable_start_frames)
+	shaderMat.set_shader_parameter("burnable_radii", burnable_radii)
+	shaderMat.set_shader_parameter("burnable_glow_speeds", burnable_glow_speeds)
 	shaderMat.set_shader_parameter("pulse_positions", pulse_positions)
 
 func create_pulse(pulse_position : Vector2):
@@ -39,18 +43,18 @@ func create_pulse(pulse_position : Vector2):
 	pulse_positions.remove_at(0)
 	pulse_positions.push_back(pulse_position)
 
-#Get new information on whether a given torch on the level is lit and its position in the level
-func update_torches():
-	torch_positions.clear()
-	torch_start_frames.clear()
-	var level_torches = get_tree().get_nodes_in_group("Torches")
-	level_torches.remove_at(0)
-	var i = 0
-	for torch in level_torches:
-		if (torch.start_frame > 0.0):
-			torch_start_frames.push_back(torch.start_frame)
-		else:
-			torch_start_frames.push_back(0)
-		torch_states.insert(i, torch.lit)
-		torch_positions.push_back(torch.position)
-		i += 1
+#Get new information on whether a given burnable on the level is lit and its position in the level
+func update_burnables():
+	burnable_positions.clear()
+	burnable_states.clear()
+	burnable_start_frames.clear()
+	burnable_radii.clear()
+	burnable_glow_speeds.clear()
+	var level_burnables = get_tree().get_nodes_in_group("Burnables")
+	level_burnables.remove_at(0)
+	for burnable in level_burnables:
+		burnable_positions.push_back(burnable.position)
+		burnable_states.push_back(burnable.lit)
+		burnable_start_frames.push_back(burnable.start_frame)
+		burnable_radii.push_back(burnable.burn_radius)
+		burnable_glow_speeds.push_back(burnable.glow_speed)
