@@ -129,7 +129,6 @@ size = Vector2(6, 32)
 
 [node name="Level" type="Node2D" groups=["Burnables", "Pulses"]]
 script = ExtResource("1_6lvft")
-PulseScene = ExtResource("2_lljsl")
 pulseSpeed = 2.75
 
 [node name="Level Ground" type="Sprite2D" parent="."]
@@ -177,7 +176,6 @@ tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0
@@ -218,8 +216,7 @@ position = Vector2(286, 222)
 position = Vector2(6, 8)
 shape = SubResource("RectangleShape2D_ejhw0")
 
-[connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]
-position = Vector2(176, 244)
-
 [node name="Totem" parent="." instance=ExtResource("9_0rysw")]
 position = Vector2(248, 210)
+
+[connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]
