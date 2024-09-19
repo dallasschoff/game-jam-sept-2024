@@ -609,6 +609,8 @@ radius = 5.0
 height = 14.5
 
 [node name="Player" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_27vp4")
 
 [node name="Camera2D" type="Camera2D" parent="."]

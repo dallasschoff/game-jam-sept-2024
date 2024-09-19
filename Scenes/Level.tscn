@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
-[ext_resource type="Texture2D" uid="uid://cnrhbsa3stld5" path="res://Assets/Door Animations.png" id="9_xknww"]
+[ext_resource type="Texture2D" uid="uid://b2butmxonfhns" path="res://Assets/Door Animations.png" id="9_xknww"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
 
@@ -177,6 +177,7 @@ animations = [{
 size = Vector2(31.2988, 1.21738)
 
 [node name="Level" type="Node2D" groups=["Burnables", "Pulses"]]
+y_sort_enabled = true
 script = ExtResource("1_6lvft")
 pulseSpeed = 2.75
 
@@ -236,6 +237,7 @@ offset_bottom = 363.0
 position = Vector2(144, 249)
 
 [node name="Torch Group" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Torch" parent="Torch Group" instance=ExtResource("8_ri31f")]
 position = Vector2(144, 50)
