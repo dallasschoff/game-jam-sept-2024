@@ -253,7 +253,10 @@ position = Vector2(144, 167)
 position = Vector2(74, 215)
 
 [node name="Torch6" parent="Torch Group" instance=ExtResource("8_ri31f")]
-position = Vector2(212, 256)
+position = Vector2(208, 252)
+
+[node name="Torch7" parent="Torch Group" instance=ExtResource("8_ri31f")]
+position = Vector2(296, 256)
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
 position = Vector2(49, 45)
