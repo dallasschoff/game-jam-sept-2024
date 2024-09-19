@@ -21,6 +21,7 @@ var burnable_glow_speeds : Array[float]
 func _ready():
 	shaderMat = shader.material
 	player.connect("create_pulse", create_pulse)
+	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
 
 func _process(delta):
@@ -62,7 +63,9 @@ func update_burnables():
 		burnable_radii.push_back(burnable.burn_radius)
 		burnable_glow_speeds.push_back(burnable.glow_speed)
 
-
 func _on_level_end_area_entered(area):
 	if area.get_parent() is Player:
-		get_tree().change_scene_to_packed(levelOne)
+		player.increment_radius = false
+
+func change_level():
+	get_tree().change_scene_to_packed(levelOne)

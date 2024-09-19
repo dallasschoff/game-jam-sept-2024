@@ -258,10 +258,10 @@ position = Vector2(74, 215)
 position = Vector2(208, 252)
 
 [node name="Torch7" parent="Torch Group" instance=ExtResource("8_ri31f")]
-position = Vector2(296, 256)
+position = Vector2(295, 260)
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-position = Vector2(49, 45)
+position = Vector2(54, 45)
 
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(286, 222)
