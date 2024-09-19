@@ -515,6 +515,7 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_2snx2")
 blend_point_7/pos = Vector2(-1, -1.1)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
+snap = Vector2(0.01, 0.01)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_df2bq"]
@@ -646,7 +647,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/conditions/pulse = false
-parameters/idle/blend_position = Vector2(-0.00152439, 0.136283)
+parameters/idle/blend_position = Vector2(-0.399894, -0.770659)
 parameters/pulse/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 

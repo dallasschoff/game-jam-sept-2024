@@ -22,6 +22,7 @@ var increment_radius: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	direction = Vector2(0,1)
 	pulse_cooldown_timer = Timer.new()
 	pulse_cooldown_timer.wait_time = pulse_cooldown
 	pulse_cooldown_timer.one_shot = true
