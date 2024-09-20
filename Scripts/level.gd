@@ -1,7 +1,8 @@
 extends Node2D
+class_name Level
 
 signal level_over
-var levelOne: PackedScene = load("res://Scenes/Level.tscn")
+var levelTwo: PackedScene = load("res://Scenes/Level2.tscn")
 @onready var player = $Player
 @onready var shader = $ColorRect
 @onready var level_end = $"Level End"
@@ -68,4 +69,4 @@ func _on_level_end_area_entered(area):
 		player.increment_radius = false
 
 func change_level():
-	get_tree().change_scene_to_packed(levelOne)
+	get_tree().change_scene_to_packed(levelTwo)

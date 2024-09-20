@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://carluypj8jp8g"]
+
+[ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
+[ext_resource type="Texture2D" uid="uid://bocb81p7airo1" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
+[ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="3_3wna7"]
+[ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="4_75h8t"]
+[ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_4cb7b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_062xi"]
+shader = ExtResource("5_4cb7b")
+shader_parameter/player_position = null
+shader_parameter/start_frame = null
+shader_parameter/current_frame = null
+shader_parameter/pulseSpeed = null
+shader_parameter/burnable_positions = null
+shader_parameter/burnable_states = null
+shader_parameter/burnable_start_frames = null
+shader_parameter/burnable_radii = null
+shader_parameter/burnable_glow_speeds = null
+shader_parameter/pulse_positions = null
+shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
+shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
+shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
+shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x55gl"]
+size = Vector2(6, 32)
+
+[node name="Level 2" type="Node2D"]
+script = ExtResource("1_pp0fm")
+
+[node name="Level Ground" type="Sprite2D" parent="."]
+texture = ExtResource("2_7uueu")
+centered = false
+
+[node name="Torch Group" type="Node2D" parent="."]
+
+[node name="Torch" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(332, 932)
+
+[node name="Torch2" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(373, 933)
+
+[node name="Player" parent="." instance=ExtResource("4_75h8t")]
+position = Vector2(29, 973)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_062xi")
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 961.0
+offset_bottom = 1010.0
+
+[node name="Level End" type="Area2D" parent="."]
+position = Vector2(286, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level End"]
+position = Vector2(6, 8)
+shape = SubResource("RectangleShape2D_x55gl")

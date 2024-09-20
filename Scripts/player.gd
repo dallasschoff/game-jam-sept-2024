@@ -14,6 +14,7 @@ var can_pulse = true
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var transitioner: ColorRect = $ColorRect
+@onready var camera: Camera2D = $Camera2D
 var transitionerMat
 var transitionRadiusMax: float = 150.0
 var transitionRadiusMin: float = -8.0

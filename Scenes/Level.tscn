@@ -176,7 +176,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71qlx"]
 size = Vector2(31.2988, 1.21738)
 
-[node name="Level" type="Node2D" groups=["Burnables", "Pulses"]]
+[node name="Level 1" type="Node2D" groups=["Burnables", "Pulses"]]
 y_sort_enabled = true
 script = ExtResource("1_6lvft")
 pulseSpeed = 2.75
@@ -226,6 +226,7 @@ tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0
@@ -261,7 +262,7 @@ position = Vector2(208, 252)
 position = Vector2(295, 260)
 
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-position = Vector2(54, 45)
+position = Vector2(232, 252)
 
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(286, 222)
