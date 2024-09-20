@@ -39,7 +39,49 @@ centered = false
 position = Vector2(332, 932)
 
 [node name="Torch2" parent="Torch Group" instance=ExtResource("3_3wna7")]
-position = Vector2(373, 933)
+position = Vector2(374, 932)
+
+[node name="Torch3" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(332, 832)
+
+[node name="Torch4" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 832)
+
+[node name="Torch5" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(332, 632)
+
+[node name="Torch6" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 632)
+
+[node name="Torch7" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(333, 532)
+
+[node name="Torch8" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 532)
+
+[node name="Torch9" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(333, 432)
+
+[node name="Torch10" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 432)
+
+[node name="Torch11" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(333, 332)
+
+[node name="Torch12" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 332)
+
+[node name="Torch13" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(333, 232)
+
+[node name="Torch14" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 232)
+
+[node name="Torch15" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(333, 132)
+
+[node name="Torch16" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(375, 132)
 
 [node name="Player" parent="." instance=ExtResource("4_75h8t")]
 position = Vector2(29, 973)
