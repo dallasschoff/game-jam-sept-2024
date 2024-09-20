@@ -7,6 +7,7 @@ var lit = false
 @export var start_frame : float = 0.0
 @export var burn_radius : float = 30.0
 @export var glow_speed : float = 4.0
+var firstActivated : bool = false
 
 func _ready():
 	play("default")
@@ -22,7 +23,9 @@ func _on_area_2d_area_entered(area):
 		lit = true
 		start_frame = Engine.get_process_frames()
 		play("start_burning")
-		totemActivate.emit()
+		if not firstActivated:
+			totemActivate.emit()
+			firstActivated = true
 
 #When an area2d exits (despawns) the totem's area2d, the totem should extinguish
 func _on_area_2d_area_exited(area):
