@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://carluypj8jp8g"]
+[gd_scene load_steps=40 format=4 uid="uid://carluypj8jp8g"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
 [ext_resource type="Texture2D" uid="uid://bao552dvjj65p" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="3_3wna7"]
+[ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_jkxe6"]
 [ext_resource type="PackedScene" uid="uid://ckni6j03ju323" path="res://Scenes/Column.tscn" id="4_4a6bc"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="4_75h8t"]
 [ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_4cb7b"]
@@ -11,6 +12,127 @@
 [ext_resource type="PackedScene" uid="uid://ceb5kc07bd3r5" path="res://Scenes/BranchB.tscn" id="8_masyu"]
 [ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="9_ah48g"]
 [ext_resource type="Texture2D" uid="uid://b2butmxonfhns" path="res://Assets/Door Animations.png" id="11_80ius"]
+[ext_resource type="Texture2D" uid="uid://d226d2pl1chv2" path="res://Assets/Door Front Piece.png" id="12_vn1kw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvw1e"]
+resource_name = "Collision"
+texture = ExtResource("3_jkxe6")
+use_texture_padding = false
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:2/0/modulate = Color(0, 1, 0, 0)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/modulate = Color(1, 1, 1, 0)
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0v0nm"]
+occlusion_layer_0/light_mask = 1
+occlusion_layer_0/sdf_collision = true
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wvw1e")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73hl4"]
+size = Vector2(247, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vxxy"]
+size = Vector2(55, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bels5"]
+size = Vector2(15, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmlp2"]
+size = Vector2(40, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfvod"]
+size = Vector2(40, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbewr"]
+size = Vector2(184, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y13xq"]
+size = Vector2(89.5, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1v31"]
+size = Vector2(42.0584, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyacr"]
+size = Vector2(17.8829, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hch0y"]
+size = Vector2(20, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5ib1"]
+size = Vector2(94, 229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vbf4"]
+size = Vector2(65, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_614el"]
+size = Vector2(92, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7epu1"]
+size = Vector2(59, 47)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_062xi"]
 shader = ExtResource("5_4cb7b")
@@ -79,6 +201,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gr2i"]
+size = Vector2(37.6514, 4.28885)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x55gl"]
 size = Vector2(6, 32)
 
@@ -89,6 +214,92 @@ script = ExtResource("1_pp0fm")
 [node name="Level Ground" type="Sprite2D" parent="."]
 texture = ExtResource("2_7uueu")
 centered = false
+
+[node name="TileMapCollision" type="TileMapLayer" parent="."]
+modulate = Color(0, 1, 0, 1)
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAEAAAAAAAEAAIAAAADAAAAAAAEAAIAAAACAAAAAAAEAAIAAAABAAAAAAAEAAIAAAAAAAAAAAAEAAIAAAAAAAEAAAAEAAIAAAAAAAIAAAAEAAIAAAAAAAMAAAAEAAIAAAAAAAQAAAAEAAIAAAAAAAUAAAAEAAIAAAABAAUAAAAEAAIAAAACAAUAAAAEAAIAAAADAAUAAAAEAAIAAAAEAAUAAAAEAAIAAAAAAAYAAAAEAAIAAAAAAAcAAAAEAAIAAAAEAAYAAAAEAAIAAAAEAAcAAAAEAAIAAAAFAAAAAAAEAAIAAAAGAAAAAAAEAAIAAAAHAAAAAAAEAAIAAAAIAAAAAAAEAAIAAAAJAAAAAAAEAAIAAAAKAAAAAAAEAAIAAAALAAAAAAAEAAIAAAAMAAAAAAAEAAIAAAANAAAAAAAEAAIAAAAOAAAAAAAEAAIAAAAPAAAAAAAEAAIAAAAQAAAAAAAEAAIAAAARAAAAAAAEAAIAAAASAAAAAAADAAIAAAATAAAAAAADAAIAAAATAAEAAAAEAAIAAAATAAIAAAAEAAIAAAATAAMAAAAEAAIAAAATAAQAAAAEAAIAAAATAAUAAAAEAAIAAAATAAYAAAAEAAIAAAATAAcAAAAEAAIAAAATAAgAAAAEAAIAAAATAAkAAAAEAAIAAAATAAoAAAAEAAIAAAATAAsAAAAEAAIAAAATAAwAAAAEAAIAAAATAA0AAAAEAAIAAAATAA4AAAAEAAIAAAATAA8AAAAEAAIAAAATABAAAAAEAAIAAAATABEAAAAEAAIAAAAHABEAAAAEAAIAAAAIABEAAAAEAAIAAAAJABEAAAAEAAIAAAAKABEAAAAEAAIAAAALABEAAAAEAAIAAAAMABEAAAAEAAIAAAANABEAAAAEAAIAAAAOABEAAAAEAAIAAAAPABEAAAAEAAIAAAAQABEAAAAEAAIAAAARABEAAAAEAAIAAAASABEAAAADAAIAAAAAAAgAAAAEAAIAAAAAAAkAAAAEAAIAAAAAAAoAAAAEAAIAAAAAAAsAAAAEAAIAAAAAAAwAAAAEAAIAAAAAAA0AAAAEAAIAAAAAAA4AAAAEAAIAAAAAAA8AAAAEAAIAAAAAABAAAAAEAAIAAAAAABEAAAAEAAIAAAABABEAAAAEAAIAAAACABEAAAAEAAIAAAADABEAAAAEAAIAAAAEABEAAAAEAAIAAAAFABEAAAAEAAIAAAAGABEAAAAEAAIAAAAAADoAAAADAAIAAAABADoAAAADAAIAAAACADoAAAADAAIAAAADADoAAAADAAIAAAAEADoAAAADAAIAAAAFADoAAAADAAIAAAAGADoAAAADAAIAAAAHADoAAAADAAIAAAAIADoAAAADAAIAAAAJADoAAAADAAIAAAAKADoAAAADAAIAAAALADoAAAADAAIAAAAMADoAAAADAAIAAAANADoAAAADAAIAAAAOADoAAAADAAIAAAAPADoAAAADAAIAAAAQADoAAAADAAIAAAARADoAAAADAAIAAAASADoAAAADAAIAAAAAAD4AAAADAAIAAAABAD4AAAADAAIAAAACAD4AAAADAAIAAAADAD4AAAADAAIAAAAEAD4AAAADAAIAAAAFAD4AAAADAAIAAAAGAD4AAAADAAIAAAAHAD4AAAADAAIAAAAIAD4AAAADAAIAAAAJAD4AAAADAAIAAAAKAD4AAAADAAIAAAALAD4AAAADAAIAAAAMAD4AAAADAAIAAAANAD4AAAADAAIAAAAOAD4AAAADAAIAAAAPAD4AAAADAAIAAAAQAD4AAAADAAIAAAARAD4AAAADAAIAAAASAD4AAAADAAIAAAATAD4AAAADAAIAAAAUAD4AAAADAAIAAAAVAD4AAAADAAIAAAAWAD4AAAADAAIAAAAXAD4AAAADAAIAAAAYAD4AAAADAAIAAAAZAD4AAAADAAIAAAAZAD0AAAADAAIAAAAZADwAAAADAAIAAAAZADsAAAADAAIAAAASADkAAAADAAIAAAASADgAAAADAAIAAAASADcAAAADAAIAAAASACYAAAADAAIAAAASACcAAAADAAIAAAASACgAAAADAAIAAAASACkAAAADAAIAAAASACoAAAADAAIAAAASACsAAAADAAIAAAASACwAAAADAAIAAAASAC0AAAADAAIAAAASAC4AAAADAAIAAAASAC8AAAADAAIAAAASADAAAAADAAIAAAASADEAAAADAAIAAAASADIAAAADAAIAAAASADMAAAADAAIAAAASADQAAAADAAIAAAASADUAAAADAAIAAAASADYAAAADAAIAAAAZACIAAAADAAIAAAAZACMAAAADAAIAAAAZACQAAAADAAIAAAAZACUAAAADAAIAAAAZACYAAAADAAIAAAAZACcAAAADAAIAAAAZACgAAAADAAIAAAAZACkAAAADAAIAAAAZACoAAAADAAIAAAAZACsAAAADAAIAAAAZACwAAAADAAIAAAAZAC0AAAADAAIAAAAZAC4AAAADAAIAAAAZAC8AAAADAAIAAAAZADAAAAADAAIAAAAZADEAAAADAAIAAAAZADIAAAADAAIAAAAZADMAAAADAAIAAAAZADQAAAADAAIAAAAZADUAAAADAAIAAAAZADYAAAADAAIAAAAZADcAAAADAAIAAAAZADgAAAADAAIAAAAZADkAAAADAAIAAAAZADoAAAADAAIAAAASABUAAAADAAIAAAASABYAAAADAAIAAAASABcAAAADAAIAAAASABgAAAADAAIAAAASABkAAAADAAIAAAASABoAAAADAAIAAAASABsAAAADAAIAAAASABwAAAADAAIAAAASAB0AAAADAAIAAAASAB4AAAADAAIAAAASAB8AAAADAAIAAAASACAAAAADAAIAAAASACEAAAADAAIAAAASACIAAAADAAIAAAASACMAAAADAAIAAAASACQAAAADAAIAAAASACUAAAADAAIAAAAZAAsAAAADAAIAAAAZAAwAAAADAAIAAAAZAA0AAAADAAIAAAAZAA4AAAADAAIAAAAZAA8AAAADAAIAAAAZABAAAAADAAIAAAAZABEAAAADAAIAAAAZABIAAAADAAIAAAAZABMAAAADAAIAAAAZABQAAAADAAIAAAAZABUAAAADAAIAAAAZABYAAAADAAIAAAAZABcAAAADAAIAAAAZABgAAAADAAIAAAAZABkAAAADAAIAAAAZABoAAAADAAIAAAAZABsAAAADAAIAAAAZABwAAAADAAIAAAAZAB0AAAADAAIAAAAZAB4AAAADAAIAAAAZAB8AAAADAAIAAAAZACAAAAADAAIAAAAZACEAAAADAAIAAAASAAIAAAADAAIAAAASAAMAAAADAAIAAAASAAQAAAADAAIAAAASAAUAAAADAAIAAAASAAYAAAADAAIAAAASAAcAAAADAAIAAAASAAgAAAADAAIAAAASAAkAAAADAAIAAAASAAoAAAADAAIAAAASAAsAAAADAAIAAAASAAwAAAADAAIAAAASAA0AAAADAAIAAAASAA4AAAADAAIAAAASAA8AAAADAAIAAAASABAAAAADAAIAAAASABIAAAADAAIAAAASABMAAAADAAIAAAASABQAAAADAAIAAAASAAEAAAADAAIAAAAUAAAAAAADAAIAAAAVAAAAAAADAAIAAAAWAAAAAAADAAIAAAAXAAAAAAADAAIAAAAYAAAAAAADAAIAAAAZAAAAAAADAAIAAAAaAAAAAAADAAIAAAAbAAAAAAADAAIAAAAcAAAAAAADAAIAAAAdAAAAAAADAAIAAAAeAAAAAAADAAIAAAAfAAAAAAADAAIAAAAgAAAAAAADAAIAAAAhAAAAAAADAAIAAAAiAAAAAAADAAIAAAAjAAAAAAADAAIAAAAkAAAAAAADAAIAAAAlAAAAAAADAAIAAAAmAAAAAAADAAIAAAAnAAAAAAADAAIAAAAoAAAAAAADAAIAAAApAAAAAAADAAIAAAAqAAAAAAADAAIAAAArAAAAAAADAAIAAAAsAAAAAAADAAIAAAAtAAAAAAADAAIAAAAuAAAAAAADAAIAAAAvAAAAAAADAAIAAAAZAAcAAAADAAIAAAAZAAgAAAADAAIAAAAZAAkAAAADAAIAAAAZAAoAAAADAAIAAAA0AAEAAAADAAIAAAA1AAEAAAADAAIAAAA2AAEAAAADAAIAAAA3AAEAAAADAAIAAAA4AAEAAAADAAIAAAA5AAEAAAADAAIAAAA6AAEAAAADAAIAAAA7AAEAAAADAAIAAAA7AAIAAAADAAIAAAA7AAMAAAADAAIAAAA7AAQAAAADAAIAAAA7AAUAAAADAAIAAAA7AAYAAAADAAIAAAA7AAcAAAADAAIAAAD//zoAAAADAAIAAAD//zsAAAADAAIAAAD//zwAAAADAAIAAAD//z0AAAADAAIAAAD//z4AAAADAAIAAAA=")
+tile_set = SubResource("TileSet_0v0nm")
+use_kinematic_bodies = true
+
+[node name="Collision Group" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collision Group"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(523.5, 131.5)
+shape = SubResource("RectangleShape2D_73hl4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(523.5, 284.5)
+shape = SubResource("RectangleShape2D_8vxxy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(503.5, 486.5)
+shape = SubResource("RectangleShape2D_bels5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(531, 569.5)
+shape = SubResource("RectangleShape2D_bmlp2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(571, 597)
+shape = SubResource("RectangleShape2D_bfvod")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(668, 624)
+shape = SubResource("RectangleShape2D_bbewr")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(765, 597)
+shape = SubResource("RectangleShape2D_bfvod")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(805, 569)
+shape = SubResource("RectangleShape2D_bmlp2")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(869.5, 530)
+shape = SubResource("RectangleShape2D_y13xq")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(906, 481)
+rotation = 0.488692
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_p1v31")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(845.388, 447.27)
+rotation = 0.488692
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lyacr")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(835, 433)
+shape = SubResource("RectangleShape2D_hch0y")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(832, 299.5)
+shape = SubResource("RectangleShape2D_c5ib1")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(911.5, 153.5)
+shape = SubResource("RectangleShape2D_3vbf4")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(794, 85.5)
+shape = SubResource("RectangleShape2D_614el")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(718.5, 131.5)
+shape = SubResource("RectangleShape2D_7epu1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_062xi")
+offset_right = 960.0
+offset_bottom = 1008.0
 
 [node name="Torch Group" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -315,19 +526,18 @@ rotation = 1.5708
 [node name="BranchB15" parent="Branch Group" instance=ExtResource("8_masyu")]
 position = Vector2(519, 438)
 
-[node name="Player" parent="." instance=ExtResource("4_75h8t")]
-position = Vector2(29, 973)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-z_index = 1
-material = SubResource("ShaderMaterial_062xi")
-offset_right = 960.0
-offset_bottom = 1008.0
-
 [node name="Door" type="AnimatedSprite2D" parent="."]
 position = Vector2(864, 463)
 sprite_frames = SubResource("SpriteFrames_cl044")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(3.10461, 5.07947)
+rotation = 0.488692
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3gr2i")
 
 [node name="Circle" type="Sprite2D" parent="Door"]
 visible = false
@@ -364,9 +574,21 @@ hframes = 5
 vframes = 4
 frame = 9
 
+[node name="Door Front Piece" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(880, 478)
+texture = ExtResource("12_vn1kw")
+centered = false
+offset = Vector2(-48, -47)
+hframes = 2
+frame = 1
+
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(881, 443)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level End"]
 position = Vector2(6, 8)
 shape = SubResource("RectangleShape2D_x55gl")
+
+[node name="Player" parent="." instance=ExtResource("4_75h8t")]
+position = Vector2(805, 517)

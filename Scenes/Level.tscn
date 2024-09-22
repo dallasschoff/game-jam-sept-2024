@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=32 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b2butmxonfhns" path="res://Assets/Door Animations.png" id="9_xknww"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
+[ext_resource type="Texture2D" uid="uid://d226d2pl1chv2" path="res://Assets/Door Front Piece.png" id="14_h1r0n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
@@ -25,7 +26,7 @@ polygon = PackedVector2Array(139, 214, 139, 203, 143.796, 213.331, 304, 191, 304
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dd4lt"]
 polygon = PackedVector2Array(80, 104, 58, 107, 47, 108, 43, 113, 37, 110, 32, 114, 27, 107, 16, 110, 4, 107, 0, 107, 0, 133, 20, 120, 39, 118, 42, 122, 49, 117, 56, 114, 57, 109)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opm51"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcc07"]
 resource_name = "Collision"
 texture = ExtResource("3_cglan")
 use_texture_padding = false
@@ -98,7 +99,7 @@ use_texture_padding = false
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1xxjf"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xj2hr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58l7a"]
 resource_name = "Occlusion"
 texture = ExtResource("3_cglan")
 4:2/0 = 0
@@ -109,8 +110,8 @@ texture = ExtResource("3_cglan")
 occlusion_layer_0/light_mask = 1
 occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_opm51")
-sources/1 = SubResource("TileSetAtlasSource_xj2hr")
+sources/0 = SubResource("TileSetAtlasSource_xcc07")
+sources/1 = SubResource("TileSetAtlasSource_58l7a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xoxwq"]
 shader = ExtResource("5_lp5n6")
@@ -305,5 +306,12 @@ shape = SubResource("RectangleShape2D_71qlx")
 
 [node name="DoorOpenSound" type="AudioStreamPlayer2D" parent="Door"]
 stream = ExtResource("11_3q7vl")
+
+[node name="Door Front Piece" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(286, 246)
+texture = ExtResource("14_h1r0n")
+offset = Vector2(-12, -10)
+hframes = 2
 
 [connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]
