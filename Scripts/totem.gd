@@ -12,6 +12,7 @@ var firstActivated : bool = false
 func _ready():
 	play("default")
 	add_to_group("Burnables")
+	add_to_group("DoorTotems")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,6 +31,7 @@ func _on_area_2d_area_entered(area):
 #When an area2d exits (despawns) the totem's area2d, the totem should extinguish
 func _on_area_2d_area_exited(area):
 	if lit == true:
+		await get_tree().create_timer(5).timeout
 		lit = false
 		play("reverse_start_burning")
 

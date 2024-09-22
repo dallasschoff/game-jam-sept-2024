@@ -10,6 +10,7 @@ var tween
 var direction
 var pulse_cooldown_timer: Timer
 var can_pulse = true
+@export var speed = 50
 @export var pulse_cooldown = 2
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -48,7 +49,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
-	velocity = direction * 50
+	velocity = direction * speed
 	move_and_slide()
 	if Input.is_action_just_pressed("a_button") and can_pulse:
 		create_pulse.emit(position)
