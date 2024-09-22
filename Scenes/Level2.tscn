@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://carluypj8jp8g"]
+[gd_scene load_steps=21 format=3 uid="uid://carluypj8jp8g"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
-[ext_resource type="Texture2D" uid="uid://by3sxe8c28dxy" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
+[ext_resource type="Texture2D" uid="uid://bao552dvjj65p" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="3_3wna7"]
 [ext_resource type="PackedScene" uid="uid://ckni6j03ju323" path="res://Scenes/Column.tscn" id="4_4a6bc"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="4_75h8t"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branches.tscn" id="8_ln3gs"]
 [ext_resource type="PackedScene" uid="uid://ceb5kc07bd3r5" path="res://Scenes/BranchB.tscn" id="8_masyu"]
 [ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="9_ah48g"]
+[ext_resource type="Texture2D" uid="uid://b2butmxonfhns" path="res://Assets/Door Animations.png" id="11_80ius"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_062xi"]
 shader = ExtResource("5_4cb7b")
@@ -27,6 +28,56 @@ shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
 shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)
 shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwci8"]
+atlas = ExtResource("11_80ius")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d37fg"]
+atlas = ExtResource("11_80ius")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v34dk"]
+atlas = ExtResource("11_80ius")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdtd8"]
+atlas = ExtResource("11_80ius")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we4eq"]
+atlas = ExtResource("11_80ius")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4te2k"]
+atlas = ExtResource("11_80ius")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl044"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwci8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d37fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v34dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdtd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we4eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4te2k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x55gl"]
 size = Vector2(6, 32)
@@ -91,10 +142,10 @@ position = Vector2(333, 132)
 position = Vector2(375, 132)
 
 [node name="Torch17" parent="Torch Group" instance=ExtResource("3_3wna7")]
-position = Vector2(843, 454)
+position = Vector2(840, 456)
 
 [node name="Torch18" parent="Torch Group" instance=ExtResource("3_3wna7")]
-position = Vector2(888, 478)
+position = Vector2(890, 482)
 
 [node name="Torch19" parent="Torch Group" instance=ExtResource("3_3wna7")]
 position = Vector2(887, 67)
@@ -268,13 +319,53 @@ position = Vector2(519, 438)
 position = Vector2(29, 973)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_062xi")
 offset_right = 960.0
 offset_bottom = 1008.0
 
+[node name="Door" type="AnimatedSprite2D" parent="."]
+position = Vector2(864, 463)
+sprite_frames = SubResource("SpriteFrames_cl044")
+
+[node name="Circle" type="Sprite2D" parent="Door"]
+visible = false
+texture = ExtResource("11_80ius")
+hframes = 5
+vframes = 4
+frame = 7
+
+[node name="Circle2" type="Sprite2D" parent="Door"]
+visible = false
+texture = ExtResource("11_80ius")
+hframes = 5
+vframes = 4
+frame = 8
+
+[node name="Circle3" type="Sprite2D" parent="Door"]
+visible = false
+texture = ExtResource("11_80ius")
+hframes = 5
+vframes = 4
+frame = 6
+
+[node name="Circle4" type="Sprite2D" parent="Door"]
+visible = false
+texture = ExtResource("11_80ius")
+hframes = 5
+vframes = 4
+frame = 10
+
+[node name="Circle5" type="Sprite2D" parent="Door"]
+visible = false
+texture = ExtResource("11_80ius")
+hframes = 5
+vframes = 4
+frame = 9
+
 [node name="Level End" type="Area2D" parent="."]
-position = Vector2(286, 222)
+position = Vector2(881, 443)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level End"]
 position = Vector2(6, 8)
