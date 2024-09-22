@@ -227,7 +227,6 @@ size = Vector2(23.2596, 21.9357)
 
 [node name="Totem" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_6dohl")
-animation = &"burning"
 script = ExtResource("2_lxllc")
 
 [node name="Area2D" type="Area2D" parent="."]

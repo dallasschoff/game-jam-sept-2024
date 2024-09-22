@@ -1,11 +1,13 @@
-[gd_scene load_steps=29 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=31 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
 [ext_resource type="Texture2D" uid="uid://b66kwjwgn3o5e" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_lp5n6"]
-[ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branch Obstacle.tscn" id="7_1xo5u"]
+[ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branches.tscn" id="7_1xo5u"]
+[ext_resource type="PackedScene" uid="uid://ceb5kc07bd3r5" path="res://Scenes/BranchB.tscn" id="7_fub5y"]
+[ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="8_p1br2"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
 [ext_resource type="Texture2D" uid="uid://b2butmxonfhns" path="res://Assets/Door Animations.png" id="9_xknww"]
@@ -226,16 +228,12 @@ tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0
 offset_top = -22.0
 offset_right = 416.0
 offset_bottom = 363.0
-
-[node name="Branches" parent="." instance=ExtResource("7_1xo5u")]
-position = Vector2(144, 249)
 
 [node name="Torch Group" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -261,6 +259,23 @@ position = Vector2(208, 252)
 [node name="Torch7" parent="Torch Group" instance=ExtResource("8_ri31f")]
 position = Vector2(295, 260)
 
+[node name="Branch Group" type="Node2D" parent="."]
+
+[node name="Branches" parent="Branch Group" instance=ExtResource("7_1xo5u")]
+position = Vector2(144, 249)
+
+[node name="BranchB" parent="Branch Group" instance=ExtResource("7_fub5y")]
+position = Vector2(291, 173)
+
+[node name="BranchA" parent="Branch Group" instance=ExtResource("8_p1br2")]
+position = Vector2(213, 139)
+
+[node name="BranchA2" parent="Branch Group" instance=ExtResource("8_p1br2")]
+position = Vector2(23, 263)
+
+[node name="BranchB2" parent="Branch Group" instance=ExtResource("7_fub5y")]
+position = Vector2(23, 248)
+
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
 position = Vector2(232, 252)
 
@@ -273,7 +288,6 @@ shape = SubResource("RectangleShape2D_ejhw0")
 
 [node name="Totem" parent="." instance=ExtResource("9_0rysw")]
 position = Vector2(248, 210)
-animation = &"default"
 
 [node name="Door" type="AnimatedSprite2D" parent="."]
 z_index = -1

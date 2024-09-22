@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://carluypj8jp8g"]
+[gd_scene load_steps=13 format=3 uid="uid://carluypj8jp8g"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
-[ext_resource type="Texture2D" uid="uid://bocb81p7airo1" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
+[ext_resource type="Texture2D" uid="uid://by3sxe8c28dxy" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="3_3wna7"]
+[ext_resource type="PackedScene" uid="uid://ckni6j03ju323" path="res://Scenes/Column.tscn" id="4_4a6bc"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="4_75h8t"]
 [ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_4cb7b"]
+[ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="5_8o7ny"]
+[ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branches.tscn" id="8_ln3gs"]
+[ext_resource type="PackedScene" uid="uid://ceb5kc07bd3r5" path="res://Scenes/BranchB.tscn" id="8_masyu"]
+[ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="9_ah48g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_062xi"]
 shader = ExtResource("5_4cb7b")
@@ -27,6 +32,7 @@ shader_parameter/cream = Vector4(1, 0.557, 0.502, 1)
 size = Vector2(6, 32)
 
 [node name="Level 2" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_pp0fm")
 
 [node name="Level Ground" type="Sprite2D" parent="."]
@@ -34,6 +40,7 @@ texture = ExtResource("2_7uueu")
 centered = false
 
 [node name="Torch Group" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Torch" parent="Torch Group" instance=ExtResource("3_3wna7")]
 position = Vector2(332, 932)
@@ -83,17 +90,188 @@ position = Vector2(333, 132)
 [node name="Torch16" parent="Torch Group" instance=ExtResource("3_3wna7")]
 position = Vector2(375, 132)
 
+[node name="Torch17" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(843, 454)
+
+[node name="Torch18" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(888, 478)
+
+[node name="Torch19" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(887, 67)
+
+[node name="Column Group" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Column" parent="Column Group" instance=ExtResource("4_4a6bc")]
+position = Vector2(710, 402)
+
+[node name="Column2" parent="Column Group" instance=ExtResource("4_4a6bc")]
+position = Vector2(751, 436)
+
+[node name="Column3" parent="Column Group" instance=ExtResource("4_4a6bc")]
+position = Vector2(625, 402)
+scale = Vector2(-1, 1)
+
+[node name="Column4" parent="Column Group" instance=ExtResource("4_4a6bc")]
+position = Vector2(585, 436)
+scale = Vector2(-1, 1)
+
+[node name="Column5" parent="Column Group" instance=ExtResource("4_4a6bc")]
+position = Vector2(933, 32)
+
+[node name="Totem Group" type="Node2D" parent="."]
+
+[node name="Totem" parent="Totem Group" instance=ExtResource("5_8o7ny")]
+z_index = 1
+position = Vector2(711, 400)
+
+[node name="Totem2" parent="Totem Group" instance=ExtResource("5_8o7ny")]
+z_index = 1
+position = Vector2(752, 434)
+
+[node name="Totem3" parent="Totem Group" instance=ExtResource("5_8o7ny")]
+z_index = 1
+position = Vector2(624, 400)
+scale = Vector2(-1, 1)
+
+[node name="Totem4" parent="Totem Group" instance=ExtResource("5_8o7ny")]
+z_index = 1
+position = Vector2(584, 434)
+scale = Vector2(-1, 1)
+
+[node name="Totem5" parent="Totem Group" instance=ExtResource("5_8o7ny")]
+z_index = 1
+position = Vector2(934, 30)
+
+[node name="Branch Group" type="Node2D" parent="."]
+
+[node name="Branches" parent="Branch Group" instance=ExtResource("8_ln3gs")]
+position = Vector2(671, 167)
+rotation = 1.5708
+
+[node name="Branches2" parent="Branch Group" instance=ExtResource("8_ln3gs")]
+position = Vector2(586, 193)
+
+[node name="Branches3" parent="Branch Group" instance=ExtResource("8_ln3gs")]
+position = Vector2(604, 246)
+rotation = 3.92699
+
+[node name="BranchA" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(635, 180)
+
+[node name="BranchB" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(607, 196)
+
+[node name="BranchB2" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(569, 230)
+scale = Vector2(-1, -1)
+
+[node name="BranchA2" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(580, 239)
+
+[node name="BranchA3" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(558, 180)
+scale = Vector2(-1, 1)
+
+[node name="BranchA4" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(787, 175)
+
+[node name="BranchB3" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(804, 175)
+
+[node name="BranchA5" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(820, 176)
+scale = Vector2(-1, 1)
+
+[node name="BranchB4" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(834, 175)
+scale = Vector2(-1, -1)
+
+[node name="Branches4" parent="Branch Group" instance=ExtResource("8_ln3gs")]
+position = Vector2(852, 164)
+rotation = 4.71239
+
+[node name="Branches5" parent="Branch Group" instance=ExtResource("8_ln3gs")]
+position = Vector2(859, 153)
+rotation = 1.5708
+
+[node name="BranchA6" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(847, 56)
+
+[node name="BranchB5" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(847, 66)
+
+[node name="BranchB6" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(847, 52)
+scale = Vector2(-1, -1)
+
+[node name="BranchA7" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(859, 53)
+
+[node name="BranchA8" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(936, 102)
+rotation = 1.5708
+scale = Vector2(-1, -1)
+
+[node name="BranchA9" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(843, 118)
+
+[node name="BranchB7" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(937, 96)
+
+[node name="BranchB8" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(914, 43)
+
+[node name="BranchA10" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(901, 50)
+rotation = 1.5708
+
+[node name="BranchB9" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(876, 81)
+
+[node name="BranchB10" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(436, 97)
+rotation = 1.5708
+
+[node name="BranchA11" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(474, 93)
+rotation = 1.5708
+
+[node name="BranchB11" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(519, 94)
+
+[node name="BranchA12" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(323, 42)
+
+[node name="BranchA13" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(419, 37)
+rotation = -1.5708
+
+[node name="Branches6" parent="Branch Group" instance=ExtResource("8_ln3gs")]
+position = Vector2(739, 42)
+
+[node name="BranchB12" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(729, 90)
+
+[node name="BranchB13" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(721, 99)
+scale = Vector2(-1, -1)
+
+[node name="BranchB14" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(739, 85)
+rotation = 1.5708
+
+[node name="BranchB15" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(519, 438)
+
 [node name="Player" parent="." instance=ExtResource("4_75h8t")]
 position = Vector2(29, 973)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_062xi")
-offset_left = 1.0
-offset_top = 2.0
-offset_right = 961.0
-offset_bottom = 1010.0
+offset_right = 960.0
+offset_bottom = 1008.0
 
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(286, 222)

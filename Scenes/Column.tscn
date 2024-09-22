@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckni6j03ju323"]
+
+[ext_resource type="Texture2D" uid="uid://bkx1dkmsh3dpo" path="res://Assets/Column.png" id="1_vgsep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_voe3q"]
+radius = 9.0
+
+[node name="Column" type="Sprite2D"]
+y_sort_enabled = true
+texture = ExtResource("1_vgsep")
+offset = Vector2(0, -40)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_voe3q")
