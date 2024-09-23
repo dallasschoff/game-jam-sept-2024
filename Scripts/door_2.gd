@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 
 @onready var level2 = $".."
 @onready var collision = $StaticBody2D/CollisionShape2D
+@onready var music = $"../OST"
 
 var circleList
 
@@ -17,18 +18,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#if $Level2.currentLitTotems == 5:
-		#_open()
 	pass
 
 func _open():
 	await get_tree().create_timer(1.8).timeout
+	music.stop()
+	await get_tree().create_timer(0.4).timeout
 	$DoorOpenSound.play()
-	#for circle in circleList:
-		#if circle is Sprite2D:
-			#circle.hide()
 	play("open2")
 	await get_tree().create_timer(1).timeout
 	collision.set_deferred("disabled", true)
-	
-	
+	await get_tree().create_timer(1).timeout
+	music.play()

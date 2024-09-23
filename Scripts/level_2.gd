@@ -5,6 +5,7 @@ var limit_right = 960
 var limit_top = 0
 var limit_bottom = 1008
 @onready var currentLitTotems = 0
+#@onready var music = $OST
 var doorOpened : bool = false
 
 signal allTotemsLit
@@ -21,6 +22,8 @@ func _ready():
 	player.camera.limit_right = limit_right
 	player.camera.limit_top = limit_top
 	player.camera.limit_bottom = limit_bottom
+	
+	playMusic2()
 
 func _process(delta):
 	# Inherited from parent scene
@@ -53,3 +56,11 @@ func updateTotemDoor():
 	if currentLitTotems == 5 && not doorOpened:
 		allTotemsLit.emit()
 		doorOpened = true
+		
+
+func playMusic2():
+	await get_tree().create_timer(1).timeout
+	music.volume_db = -20
+	music.play()
+	var fadeIn2 = get_tree().create_tween()
+	fadeIn2.tween_property(music,"volume_db",0,1.5)
