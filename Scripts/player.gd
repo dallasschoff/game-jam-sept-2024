@@ -11,7 +11,7 @@ var direction
 var pulse_cooldown_timer: Timer
 var can_pulse = true
 @export var speed = 50
-@export var pulse_cooldown = 2
+@export var pulse_cooldown = 1
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var transitioner: ColorRect = $ColorRect
@@ -27,7 +27,7 @@ var increment_radius: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	direction = Vector2(0,1)
+	#direction = Vector2(1,-1)
 	pulse_cooldown_timer = Timer.new()
 	pulse_cooldown_timer.wait_time = pulse_cooldown
 	pulse_cooldown_timer.one_shot = true
