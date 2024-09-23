@@ -4,6 +4,7 @@ class_name Level
 signal level_over
 var nextLevel: PackedScene = load("res://Scenes/Level2.tscn")
 @onready var player = $Player
+@onready var music = $OST
 @onready var shader = $ColorRect
 @onready var level_end = $"Level End"
 var PulseScene: PackedScene = load("res://Scenes/Pulse.tscn")
@@ -24,6 +25,8 @@ func _ready():
 	player.connect("create_pulse", create_pulse)
 	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
+	
+	playMusic()
 
 func _process(delta):
 	shaderMat.set_shader_parameter("player_position", player.position)
@@ -68,5 +71,15 @@ func _on_level_end_area_entered(area):
 	if area.get_parent() is Player:
 		player.increment_radius = false
 
+
+func playMusic():
+	await get_tree().create_timer(1).timeout
+	music.volume_db = -20
+	music.play()
+	var fadeIn = get_tree().create_tween()
+	fadeIn.tween_property(music,"volume_db",0,1.5)
+
+
 func change_level():
+	music.stop()
 	get_tree().change_scene_to_packed(nextLevel)
