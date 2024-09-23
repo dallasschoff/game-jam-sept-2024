@@ -16,6 +16,9 @@ var can_pulse = true
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var transitioner: ColorRect = $ColorRect
 @onready var camera: Camera2D = $Camera2D
+@onready var collectibleLabel: Label = $CanvasLayer/Label
+var collectibleCounter
+var collectibleMax
 var transitionerMat
 var transitionRadiusMax: float = 150.0
 var transitionRadiusMin: float = -8.0
@@ -46,6 +49,7 @@ func _process(delta):
 	transitionerMat.set_shader_parameter("transition_radius", transition_radius)
 		
 	update_animation_parameters()
+	_update_collectibles()
 	
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
@@ -68,3 +72,6 @@ func update_animation_parameters():
 
 func _on_pulse_cooldown_timeout():
 	can_pulse = true
+
+func _update_collectibles():
+	collectibleLabel.text = "{}/{}".format([collectibleCounter, collectibleMax], "{}")

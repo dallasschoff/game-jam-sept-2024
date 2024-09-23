@@ -17,6 +17,9 @@ func _ready():
 	player.connect("create_pulse", create_pulse)
 	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
+	player.collectibleCounter = 0
+	var collectibles = get_tree().get_nodes_in_group("Collectibles")
+	player.collectibleMax = len(collectibles)
 	
 	player.camera.limit_left = limit_left
 	player.camera.limit_right = limit_right
