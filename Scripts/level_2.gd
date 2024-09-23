@@ -41,6 +41,17 @@ func _process(delta):
 	
 	# Updating door based on totem lit status
 	updateTotemDoor()
+	
+func create_pulse(pulse_position : Vector2):
+	shaderMat.set_shader_parameter("start_frame", Engine.get_process_frames())
+	var pulse = PulseScene.instantiate()
+	pulse.position = pulse_position
+	add_child(pulse)
+	var pulses = get_tree().get_nodes_in_group("Pulses")
+	if (len(pulses) > 2):
+		pulses[0].queue_free()
+	pulse_positions.remove_at(0)
+	pulse_positions.push_back(pulse_position)
 
 # Recurs through totems and lights up associated circle
 func updateTotemDoor():
