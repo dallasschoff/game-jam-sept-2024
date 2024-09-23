@@ -1,15 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0bxdlrhk4p65"]
+[gd_scene load_steps=10 format=3 uid="uid://d0bxdlrhk4p65"]
 
 [ext_resource type="Texture2D" uid="uid://b4pk5gi46p0s2" path="res://Assets/Torch.png" id="1_ydjkl"]
 [ext_resource type="Script" path="res://Scripts/torch.gd" id="2_d0c7t"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrnfq"]
-atlas = ExtResource("1_ydjkl")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jadq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1s5n"]
 atlas = ExtResource("1_ydjkl")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p15al"]
+atlas = ExtResource("1_ydjkl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7q8u"]
+atlas = ExtResource("1_ydjkl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3elly"]
+atlas = ExtResource("1_ydjkl")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljjy7"]
 atlas = ExtResource("1_ydjkl")
@@ -19,10 +27,16 @@ region = Rect2(0, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rrnfq")
+"texture": SubResource("AtlasTexture_a1s5n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7jadq")
+"texture": SubResource("AtlasTexture_p15al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7q8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3elly")
 }],
 "loop": false,
 "name": &"burning",
@@ -44,7 +58,6 @@ radius = 9.0
 z_as_relative = false
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_85r6a")
-animation = &"burning"
 offset = Vector2(0, -10)
 script = ExtResource("2_d0c7t")
 

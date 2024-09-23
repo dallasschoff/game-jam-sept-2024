@@ -82,6 +82,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t1skd")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"burning",
