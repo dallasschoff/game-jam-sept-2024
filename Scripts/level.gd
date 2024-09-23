@@ -48,7 +48,6 @@ func create_pulse(pulse_position : Vector2):
 	pulse.position = pulse_position
 	add_child(pulse)
 	var pulses = get_tree().get_nodes_in_group("Pulses")
-	pulses.remove_at(0)
 	if (len(pulses) > 2):
 		pulses[0].queue_free()
 	pulse_positions.remove_at(0)
