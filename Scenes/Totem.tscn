@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://c1bcyc51cbbud"]
 
-[ext_resource type="Texture2D" uid="uid://d7a1ibhej8v8" path="res://Assets/Totem Burning.png" id="1_cojpt"]
+[ext_resource type="Texture2D" uid="uid://2t43om235x8d" path="res://Assets/Totem Burning.png" id="1_cojpt"]
 [ext_resource type="Script" path="res://Scripts/totem.gd" id="2_lxllc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umrcj"]

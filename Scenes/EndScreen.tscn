@@ -138,4 +138,4 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_q36rq")
 animation = &"pulse_ground_fire"
 autoplay = "pulse_ground_fire"
-frame_progress = 0.90693
+frame_progress = 0.450403
