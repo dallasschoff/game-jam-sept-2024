@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=34 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="8_p1br2"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
+[ext_resource type="PackedScene" uid="uid://s1gwjvgswweo" path="res://Scenes/Collectible.tscn" id="9_m2fvf"]
 [ext_resource type="Texture2D" uid="uid://jn8b8tp5p6nx" path="res://Assets/Door Animations.png" id="9_xknww"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
@@ -269,7 +270,7 @@ position = Vector2(295, 260)
 position = Vector2(144, 249)
 
 [node name="BranchB" parent="Branch Group" instance=ExtResource("7_fub5y")]
-position = Vector2(291, 173)
+position = Vector2(295, 152)
 
 [node name="BranchA" parent="Branch Group" instance=ExtResource("8_p1br2")]
 position = Vector2(213, 139)
@@ -280,8 +281,19 @@ position = Vector2(23, 263)
 [node name="BranchB2" parent="Branch Group" instance=ExtResource("7_fub5y")]
 position = Vector2(23, 248)
 
+[node name="BranchB3" parent="Branch Group" instance=ExtResource("7_fub5y")]
+position = Vector2(282, 171)
+
+[node name="Collectibles Group" type="Node2D" parent="."]
+
+[node name="Collectible" parent="Collectibles Group" instance=ExtResource("9_m2fvf")]
+position = Vector2(295, 172)
+
+[node name="Collectible2" parent="Collectibles Group" instance=ExtResource("9_m2fvf")]
+position = Vector2(24, 164)
+
 [node name="Player" parent="." instance=ExtResource("2_6mnp7")]
-position = Vector2(232, 252)
+position = Vector2(52, 46)
 
 [node name="Level End" type="Area2D" parent="."]
 position = Vector2(286, 222)

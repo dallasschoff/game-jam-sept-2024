@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://carluypj8jp8g"]
+[gd_scene load_steps=48 format=4 uid="uid://carluypj8jp8g"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
 [ext_resource type="Texture2D" uid="uid://vflf2ejojwk5" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="12_vn1kw"]
 [ext_resource type="PackedScene" uid="uid://cnwwdpcqiih1m" path="res://Scenes/RockC.tscn" id="13_ccuec"]
 [ext_resource type="Script" path="res://Scripts/door_2.gd" id="13_kdac6"]
+[ext_resource type="PackedScene" uid="uid://s1gwjvgswweo" path="res://Scenes/Collectible.tscn" id="14_gxie0"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="14_nyroq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvw1e"]
@@ -639,7 +640,7 @@ position = Vector2(419, 37)
 rotation = -1.5708
 
 [node name="Branches6" parent="Branch Group" instance=ExtResource("8_ln3gs")]
-position = Vector2(739, 42)
+position = Vector2(725, 52)
 
 [node name="BranchB12" parent="Branch Group" instance=ExtResource("8_masyu")]
 position = Vector2(729, 90)
@@ -700,6 +701,17 @@ position = Vector2(667, 594)
 
 [node name="BranchB23" parent="Branch Group" instance=ExtResource("8_masyu")]
 position = Vector2(668, 605)
+
+[node name="Collectibles Group" type="Node2D" parent="."]
+
+[node name="Collectible" parent="Collectibles Group" instance=ExtResource("14_gxie0")]
+position = Vector2(739, 52)
+
+[node name="Collectible2" parent="Collectibles Group" instance=ExtResource("14_gxie0")]
+position = Vector2(602, 605)
+
+[node name="Collectible3" parent="Collectibles Group" instance=ExtResource("14_gxie0")]
+position = Vector2(848, 177)
 
 [node name="Player" parent="." instance=ExtResource("4_75h8t")]
 position = Vector2(24, 970)
