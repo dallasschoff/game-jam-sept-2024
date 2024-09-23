@@ -666,6 +666,8 @@ parameters/pulse/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_60mlg")
@@ -689,6 +691,7 @@ offset_bottom = -125.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("4_rex22")
+theme_override_font_sizes/font_size = 16
 text = "0/3"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
