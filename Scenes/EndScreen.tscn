@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctbaeik4h1ev2"]
+
+[ext_resource type="Theme" uid="uid://cen3bo7smyowk" path="res://Assets/Themes/default_theme.tres" id="1_sik1j"]
+[ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_pxolx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thsxp"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df8k4"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orljg"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2x2f"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xytct"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl8sb"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oypy"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txuat"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riefg"]
+atlas = ExtResource("2_pxolx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q36rq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thsxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df8k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orljg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2x2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xytct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl8sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oypy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txuat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riefg")
+}],
+"loop": true,
+"name": &"pulse_ground_fire",
+"speed": 7.0
+}]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sik1j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0196078, 0.121569, 0.223529, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -10.0
+offset_right = 28.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "Journey deeper
+in the next release..."
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, 63)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q36rq")
+animation = &"pulse_ground_fire"
+autoplay = "pulse_ground_fire"
+frame_progress = 0.450403

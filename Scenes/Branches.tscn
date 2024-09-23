@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bd3hvjnplaeqs"]
 
-[ext_resource type="Texture2D" uid="uid://be6ey5ln2dned" path="res://Assets/Branches.png" id="1_luy8v"]
+[ext_resource type="Texture2D" uid="uid://dfr51au33fdj6" path="res://Assets/Branches.png" id="1_luy8v"]
 [ext_resource type="Script" path="res://Scripts/branches.gd" id="2_kswmq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4oqi"]

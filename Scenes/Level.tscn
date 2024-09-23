@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
-[ext_resource type="Texture2D" uid="uid://b66kwjwgn3o5e" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
+[ext_resource type="Texture2D" uid="uid://btjipwptgf0lm" path="res://Assets/Level v1.1.png" id="2_cu7n0"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_cglan"]
 [ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_lp5n6"]
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branches.tscn" id="7_1xo5u"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="8_p1br2"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="8_ri31f"]
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
-[ext_resource type="Texture2D" uid="uid://b2butmxonfhns" path="res://Assets/Door Animations.png" id="9_xknww"]
+[ext_resource type="Texture2D" uid="uid://jn8b8tp5p6nx" path="res://Assets/Door Animations.png" id="9_xknww"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
-[ext_resource type="Texture2D" uid="uid://d226d2pl1chv2" path="res://Assets/Door Front Piece.png" id="14_h1r0n"]
+[ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="14_h1r0n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
