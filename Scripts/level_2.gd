@@ -5,7 +5,6 @@ var limit_right = 960
 var limit_top = 0
 var limit_bottom = 1008
 @onready var currentLitTotems = 0
-#@onready var music = $OST
 var doorOpened : bool = false
 
 signal allTotemsLit

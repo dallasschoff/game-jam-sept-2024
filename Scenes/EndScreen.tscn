@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://ctbaeik4h1ev2"]
+[gd_scene load_steps=15 format=4 uid="uid://ctbaeik4h1ev2"]
 
 [ext_resource type="Theme" uid="uid://cen3bo7smyowk" path="res://Assets/Themes/default_theme.tres" id="1_sik1j"]
+[ext_resource type="Script" path="res://Scenes/end_screen.gd" id="2_3vjq5"]
 [ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_pxolx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thsxp"]
@@ -86,6 +87,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_sik1j")
+script = ExtResource("2_3vjq5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -146,4 +148,3 @@ frame_progress = 0.450403
 
 [node name="OST" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_fecoq")
-autoplay = true
