@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://carluypj8jp8g"]
+[gd_scene load_steps=44 format=4 uid="uid://carluypj8jp8g"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
 [ext_resource type="Texture2D" uid="uid://vflf2ejojwk5" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="12_vn1kw"]
 [ext_resource type="Script" path="res://Scripts/door_2.gd" id="13_kdac6"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="14_nyroq"]
+[ext_resource type="AudioStream" uid="uid://bmt4q63eyyfte" path="res://Assets/Sounds/overworld_OST.mp3" id="16_w3fiq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvw1e"]
 resource_name = "Collision"
@@ -602,8 +603,11 @@ position = Vector2(1, 6)
 rotation = -0.806342
 shape = SubResource("RectangleShape2D_x55gl")
 
-[node name="OST" type="AudioStreamPlayer2D" parent="."]
+[node name="OSTx" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamMP3_88p00")
 panning_strength = 0.0
+
+[node name="OST" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_w3fiq")
 
 [connection signal="area_entered" from="Level End" to="." method="_on_level_end_area_entered"]
