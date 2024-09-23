@@ -113,7 +113,6 @@ void fragment() {
 
 	//Burnable lights
 	for (int i = 0; i < burnable_count; i++) {
-		if (burnable_states[i] == true) {
 			vec2 burnable_position = burnable_positions[i];
 			float burnable_frame_diff = current_frame - burnable_start_frames[i];
 			float burnable_radius1 = min(burnable_frame_diff/burnable_glow_speeds[i], flicker + burnable_radii[i]);
@@ -128,7 +127,6 @@ void fragment() {
 			if (distance(wpUV,burnable_position) < burnable_radius1) {
 				COLOR = vec4(1,1,1,0);
 			}
-		}
 	}
 
 	//switch (colorMatch(COLOR)) {
