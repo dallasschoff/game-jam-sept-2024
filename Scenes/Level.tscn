@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dflrdchtnvq33"]
+[gd_scene load_steps=35 format=4 uid="uid://dflrdchtnvq33"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6lvft"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="2_6mnp7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/door.gd" id="10_k06c7"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="14_h1r0n"]
+[ext_resource type="PackedScene" uid="uid://s1gwjvgswweo" path="res://Scenes/Collectible.tscn" id="15_0wdpl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o7thr"]
 
@@ -233,6 +234,7 @@ tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0
