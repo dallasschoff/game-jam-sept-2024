@@ -4,16 +4,14 @@ var limit_left = 0
 var limit_right = 960
 var limit_top = 0
 var limit_bottom = 1008
-
 @onready var currentLitTotems = 0
-
 var doorOpened : bool = false
 
 signal allTotemsLit
 
 func _ready():
 	var currentLitTotems = 0
-	
+	nextLevel = load("res://Scenes/EndScreen.tscn")
 	shaderMat = shader.material
 	player.connect("create_pulse", create_pulse)
 	player.connect("transition_finished", change_level)
@@ -55,6 +53,3 @@ func updateTotemDoor():
 	if currentLitTotems == 5 && not doorOpened:
 		allTotemsLit.emit()
 		doorOpened = true
-		
-	
-	
