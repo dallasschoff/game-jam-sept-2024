@@ -9,7 +9,7 @@ var nextLevel: PackedScene = load("res://Scenes/Level2.tscn")
 @onready var level_end = $"Level End"
 var PulseScene: PackedScene = load("res://Scenes/Pulse.tscn")
 # To find correct number: ratio of modulo and speed should be ratio or 12 / 5 (modulo / pulseSpeed)
-@export var pulseSpeed = 5.5
+@export var pulseSpeed = 2.75
 
 var player_position : Vector2;
 var shaderMat

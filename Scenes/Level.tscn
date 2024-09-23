@@ -186,7 +186,6 @@ loop = true
 [node name="Level 1" type="Node2D" groups=["Burnables", "Pulses"]]
 y_sort_enabled = true
 script = ExtResource("1_6lvft")
-pulseSpeed = 2.75
 
 [node name="Level Ground" type="Sprite2D" parent="."]
 z_index = -1
@@ -233,7 +232,6 @@ tile_set = SubResource("TileSet_prjya")
 use_kinematic_bodies = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_xoxwq")
 offset_left = -36.0

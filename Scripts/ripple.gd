@@ -1,11 +1,12 @@
 extends Node2D
 class_name Ripple
 
+@export var baseRadius = 23.0
 @export var end_radiusInner = 15.0
-@export var end_radiusMiddle = 24.0
-@export var end_radiusOuter = 30.0
+@export var end_radiusMiddle = 0.80*baseRadius
+@export var end_radiusOuter = baseRadius
 # To find correct number: ratio of modulo and speed should be ratio or 12 / 5 (modulo / pulseSpeed)
-@export var rippleSpeedModulo = 12
+@export var rippleSpeedModulo = 6
 var radiusInner: float = 1.0
 var radiusMiddle: float = 1.0
 var radiusOuter: float = 1.0

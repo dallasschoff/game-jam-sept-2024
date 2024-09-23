@@ -702,7 +702,7 @@ position = Vector2(667, 594)
 position = Vector2(668, 605)
 
 [node name="Player" parent="." instance=ExtResource("4_75h8t")]
-position = Vector2(789, 484)
+position = Vector2(24, 970)
 
 [node name="Door2" type="AnimatedSprite2D" parent="."]
 position = Vector2(864, 463)
