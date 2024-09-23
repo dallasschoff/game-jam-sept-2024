@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://carluypj8jp8g"]
+[gd_scene load_steps=46 format=4 uid="uid://carluypj8jp8g"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
 [ext_resource type="Texture2D" uid="uid://vflf2ejojwk5" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branches.tscn" id="8_ln3gs"]
 [ext_resource type="PackedScene" uid="uid://ceb5kc07bd3r5" path="res://Scenes/BranchB.tscn" id="8_masyu"]
 [ext_resource type="PackedScene" uid="uid://ct48cfb5ct3yu" path="res://Scenes/BranchA.tscn" id="9_ah48g"]
+[ext_resource type="PackedScene" uid="uid://bxtdumnmkh385" path="res://Scenes/RockA.tscn" id="11_5rq48"]
 [ext_resource type="Texture2D" uid="uid://jn8b8tp5p6nx" path="res://Assets/Door Animations.png" id="11_80ius"]
+[ext_resource type="PackedScene" uid="uid://c6fjtchel1kkp" path="res://Scenes/RockB.tscn" id="12_idtq4"]
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="12_vn1kw"]
+[ext_resource type="PackedScene" uid="uid://cnwwdpcqiih1m" path="res://Scenes/RockC.tscn" id="13_ccuec"]
 [ext_resource type="Script" path="res://Scripts/door_2.gd" id="13_kdac6"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="14_nyroq"]
 [ext_resource type="AudioStream" uid="uid://bmt4q63eyyfte" path="res://Assets/Sounds/overworld_OST.mp3" id="16_w3fiq"]
@@ -136,6 +139,9 @@ size = Vector2(92, 139)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7epu1"]
 size = Vector2(59, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d20p"]
+size = Vector2(20, 40.1915)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_062xi"]
 shader = ExtResource("5_4cb7b")
@@ -300,6 +306,16 @@ shape = SubResource("RectangleShape2D_614el")
 position = Vector2(718.5, 131.5)
 shape = SubResource("RectangleShape2D_7epu1")
 
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(896.784, 442.044)
+rotation = -0.802851
+shape = SubResource("RectangleShape2D_5d20p")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Collision Group/StaticBody2D"]
+position = Vector2(863, 429)
+rotation = 1.0821
+shape = SubResource("RectangleShape2D_5d20p")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 2
 material = SubResource("ShaderMaterial_062xi")
@@ -310,7 +326,7 @@ offset_bottom = 1008.0
 y_sort_enabled = true
 
 [node name="Torch" parent="Torch Group" instance=ExtResource("3_3wna7")]
-position = Vector2(332, 932)
+position = Vector2(226, 873)
 
 [node name="Torch2" parent="Torch Group" instance=ExtResource("3_3wna7")]
 position = Vector2(374, 932)
@@ -366,6 +382,9 @@ position = Vector2(890, 482)
 [node name="Torch19" parent="Torch Group" instance=ExtResource("3_3wna7")]
 position = Vector2(887, 67)
 
+[node name="Torch20" parent="Torch Group" instance=ExtResource("3_3wna7")]
+position = Vector2(332, 932)
+
 [node name="Column Group" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -409,6 +428,112 @@ scale = Vector2(-1, 1)
 [node name="Totem5" parent="Totem Group" instance=ExtResource("5_8o7ny")]
 z_index = 1
 position = Vector2(934, 30)
+
+[node name="Rocks Group" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="RockA" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(704, 171)
+
+[node name="RockB" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(692, 190)
+
+[node name="RockC" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(668, 202)
+
+[node name="RockA2" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(635, 212)
+
+[node name="RockB2" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(561, 202)
+scale = Vector2(-1, 1)
+
+[node name="RockC2" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(566, 254)
+scale = Vector2(-1, 1)
+
+[node name="RockB3" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(629, 281)
+
+[node name="RockA3" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(704, 232)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="RockB4" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(756, 303)
+scale = Vector2(-1, 1)
+
+[node name="RockC3" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(770, 247)
+
+[node name="RockC4" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(705, 287)
+scale = Vector2(-1, 1)
+
+[node name="RockB5" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(745, 210)
+
+[node name="RockA4" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(583, 307)
+
+[node name="RockB6" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(613, 481)
+
+[node name="RockA5" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(600, 593)
+
+[node name="RockB7" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(656, 595)
+
+[node name="RockC5" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(646, 594)
+
+[node name="RockB8" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(613, 595)
+scale = Vector2(-1, 1)
+
+[node name="RockA6" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(629, 593)
+scale = Vector2(-1, 1)
+
+[node name="RockB9" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(602, 582)
+
+[node name="RockC6" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(616, 582)
+
+[node name="RockB10" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(635, 585)
+scale = Vector2(-1, 1)
+
+[node name="RockA7" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(534, 518)
+
+[node name="RockB11" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(814, 535)
+
+[node name="RockA8" parent="Rocks Group" instance=ExtResource("11_5rq48")]
+position = Vector2(772, 572)
+
+[node name="RockC7" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(714, 527)
+
+[node name="RockC8" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(598, 547)
+scale = Vector2(-1, 1)
+
+[node name="RockB12" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(697, 574)
+
+[node name="RockB13" parent="Rocks Group" instance=ExtResource("12_idtq4")]
+position = Vector2(390, 987)
+scale = Vector2(-1, 1)
+
+[node name="RockC9" parent="Rocks Group" instance=ExtResource("13_ccuec")]
+position = Vector2(812, 432)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
 [node name="Branch Group" type="Node2D" parent="."]
 
@@ -530,6 +655,52 @@ rotation = 1.5708
 
 [node name="BranchB15" parent="Branch Group" instance=ExtResource("8_masyu")]
 position = Vector2(519, 438)
+
+[node name="BranchB16" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(735, 604)
+
+[node name="BranchA14" parent="Branch Group" instance=ExtResource("9_ah48g")]
+z_index = 1
+position = Vector2(640, 584)
+
+[node name="BranchB17" parent="Branch Group" instance=ExtResource("8_masyu")]
+z_index = 1
+position = Vector2(608, 584)
+scale = Vector2(-1, 1)
+
+[node name="BranchB18" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(557, 570)
+scale = Vector2(1, -1)
+
+[node name="BranchB19" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(604, 302)
+
+[node name="BranchA15" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(649, 268)
+
+[node name="BranchB20" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(689, 269)
+
+[node name="BranchB21" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(670, 280)
+rotation = 1.5708
+
+[node name="BranchA16" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(761, 268)
+
+[node name="BranchA17" parent="Branch Group" instance=ExtResource("9_ah48g")]
+z_index = 1
+position = Vector2(624, 483)
+
+[node name="BranchB22" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(723, 482)
+rotation = 1.5708
+
+[node name="BranchA18" parent="Branch Group" instance=ExtResource("9_ah48g")]
+position = Vector2(667, 594)
+
+[node name="BranchB23" parent="Branch Group" instance=ExtResource("8_masyu")]
+position = Vector2(668, 605)
 
 [node name="Player" parent="." instance=ExtResource("4_75h8t")]
 position = Vector2(789, 484)

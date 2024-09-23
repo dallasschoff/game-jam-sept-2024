@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxtdumnmkh385"]
+
+[ext_resource type="Texture2D" uid="uid://dpk4s1l1vjmf7" path="res://Assets/Rocks.png" id="1_cd0l1"]
+
+[node name="RockA" type="Sprite2D"]
+y_sort_enabled = true
+texture = ExtResource("1_cd0l1")
+offset = Vector2(2, -3)
+hframes = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+rotation = 1.5708
+polygon = PackedVector2Array(-1, 5, 3, 2, 3, -3, -3, -9, -9, -6, -5, 2)
