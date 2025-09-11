@@ -1,12 +1,12 @@
 [gd_scene load_steps=48 format=4 uid="uid://carluypj8jp8g"]
 
-[ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_pp0fm"]
+[ext_resource type="Script" uid="uid://dk2gpyao6r1pd" path="res://Scripts/level_2.gd" id="1_pp0fm"]
 [ext_resource type="Texture2D" uid="uid://vflf2ejojwk5" path="res://Assets/Level 2 WIP.png" id="2_7uueu"]
 [ext_resource type="PackedScene" uid="uid://d0bxdlrhk4p65" path="res://Scenes/Torch.tscn" id="3_3wna7"]
 [ext_resource type="Texture2D" uid="uid://cpkmwp44rog5p" path="res://Assets/icon.svg" id="3_jkxe6"]
 [ext_resource type="PackedScene" uid="uid://ckni6j03ju323" path="res://Scenes/Column.tscn" id="4_4a6bc"]
 [ext_resource type="PackedScene" uid="uid://cxael5qe6iwgb" path="res://Scenes/Player.tscn" id="4_75h8t"]
-[ext_resource type="Shader" path="res://Scripts/lighting.gdshader" id="5_4cb7b"]
+[ext_resource type="Shader" uid="uid://bbn3jo6atl13l" path="res://Scripts/lighting.gdshader" id="5_4cb7b"]
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="5_8o7ny"]
 [ext_resource type="PackedScene" uid="uid://bd3hvjnplaeqs" path="res://Scenes/Branches.tscn" id="8_ln3gs"]
 [ext_resource type="PackedScene" uid="uid://ceb5kc07bd3r5" path="res://Scenes/BranchB.tscn" id="8_masyu"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c6fjtchel1kkp" path="res://Scenes/RockB.tscn" id="12_idtq4"]
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="12_vn1kw"]
 [ext_resource type="PackedScene" uid="uid://cnwwdpcqiih1m" path="res://Scenes/RockC.tscn" id="13_ccuec"]
-[ext_resource type="Script" path="res://Scripts/door_2.gd" id="13_kdac6"]
+[ext_resource type="Script" uid="uid://d3rujd6x4cmt" path="res://Scripts/door_2.gd" id="13_kdac6"]
 [ext_resource type="PackedScene" uid="uid://s1gwjvgswweo" path="res://Scenes/Collectible.tscn" id="14_gxie0"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="14_nyroq"]
 
@@ -145,16 +145,16 @@ size = Vector2(20, 40.1915)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_062xi"]
 shader = ExtResource("5_4cb7b")
-shader_parameter/player_position = null
-shader_parameter/start_frame = null
-shader_parameter/current_frame = null
-shader_parameter/pulseSpeed = null
-shader_parameter/burnable_positions = null
-shader_parameter/burnable_states = null
-shader_parameter/burnable_start_frames = null
-shader_parameter/burnable_radii = null
-shader_parameter/burnable_glow_speeds = null
-shader_parameter/pulse_positions = null
+shader_parameter/player_position = Vector2(0, 0)
+shader_parameter/start_frame = 0.0
+shader_parameter/current_frame = 0.0
+shader_parameter/pulseSpeed = 0.0
+shader_parameter/burnable_positions = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/burnable_states = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/burnable_start_frames = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/burnable_radii = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/burnable_glow_speeds = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/pulse_positions = PackedVector2Array(0, 0, 0, 0)
 shader_parameter/blue = Vector4(0.02, 0.122, 0.224, 1)
 shader_parameter/purple = Vector4(0.29, 0.141, 0.502, 1)
 shader_parameter/pink = Vector4(0.773, 0.227, 0.616, 1)

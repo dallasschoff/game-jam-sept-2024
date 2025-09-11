@@ -10,15 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Game Jam 2024"
+config/name="Incandescent"
 run/main_scene="res://Scenes/MainMenu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/global.gd"
 
 [display]
 
 window/size/viewport_width=160
-window/size/viewport_height=144
+window/size/viewport_height=288
 window/stretch/mode="viewport"
 
 [dotnet]
