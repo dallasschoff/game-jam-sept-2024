@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://c1bcyc51cbbud"]
 
 [ext_resource type="Texture2D" uid="uid://2t43om235x8d" path="res://Assets/Totem Burning.png" id="1_cojpt"]
-[ext_resource type="Script" uid="uid://c3xa0unwphcpt" path="res://Scripts/totem.gd" id="2_lxllc"]
+[ext_resource type="Script" uid="uid://dnpyk88mw4ob0" path="res://Scripts/totem.gd" id="2_lxllc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umrcj"]
 atlas = ExtResource("1_cojpt")

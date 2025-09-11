@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://dut0nb0k5wwce"]
 
-[ext_resource type="Script" uid="uid://bin30sj2qq4d4" path="res://Scripts/pulse.gd" id="1_0sk0e"]
+[ext_resource type="Script" uid="uid://dvb62esykun3h" path="res://Scripts/pulse.gd" id="1_0sk0e"]
 [ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_i6asb"]
-[ext_resource type="Script" uid="uid://dadh66uev0r2j" path="res://Scripts/ripple.gd" id="3_80qi5"]
+[ext_resource type="Script" uid="uid://m0sth8k5kova" path="res://Scripts/ripple.gd" id="3_80qi5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thsxp"]
 atlas = ExtResource("2_i6asb")

@@ -29,7 +29,7 @@ func _ready():
 	var collectibles = get_tree().get_nodes_in_group("Collectibles")
 	player.collectibleMax = len(collectibles)
 	
-	playMusic()
+	#playMusic()
 
 func _process(delta):
 	shaderMat.set_shader_parameter("player_position", player.position)

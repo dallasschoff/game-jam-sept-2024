@@ -9,16 +9,18 @@ func _ready():
 	#var x = (DisplayServer.screen_get_size().x * 0.625) / 2
 	#var y = DisplayServer.screen_get_size().y / 2
 	DisplayServer.window_set_size(Vector2i(160 * 5, 144 * 5))
-	main_menu.connect("start_game", start_game)
+	#main_menu.connect("start_game", start_game)
 
-func start_game():
-	var level: PackedScene = levels["1"]
-	level.connect("level_over", change_level)
-	get_tree().change_scene_to_packed(level)
-	#var levelNode = level.instantiate()
-	#add_child(levelNode)
-	#current_level = levelNode
-	#main_menu.queue_free()
+#func start_game():
+	#var level: PackedScene = levels["1"]
+	#level.connect("level_over", change_level)
+	#
+	#subViewportContainer.add_child(level_instance)
+	##get_tree().change_scene_to_packed(level)
+	##var levelNode = level.instantiate()
+	##add_child(levelNode)
+	##current_level = levelNode
+	##main_menu.queue_free()
 
 func change_level(level_number: String):
 	var level: PackedScene = levels[level_number]

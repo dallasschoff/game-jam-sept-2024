@@ -14,6 +14,7 @@ config/name="Incandescent"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
+run/size/viewport_height=144
 
 [autoload]
 
