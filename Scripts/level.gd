@@ -85,4 +85,7 @@ func playMusic():
 
 func change_level():
 	music.stop()
-	get_tree().change_scene_to_packed(nextLevel)
+	var level_instance = nextLevel.instantiate()
+	get_parent().add_child(level_instance)
+	queue_free()
+	#get_tree().change_scene_to_packed(nextLevel)

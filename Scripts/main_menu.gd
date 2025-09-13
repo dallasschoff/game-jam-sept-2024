@@ -3,7 +3,7 @@ extends Control
 signal start_game
 var levelOne: PackedScene = load("res://Scenes/Level.tscn")
 var mobileControls
-@onready var subViewportContainer = $"../SubViewportContainer/SubViewport"
+@onready var subViewport = $"../../SubViewportContainer/SubViewport"
 
 @onready var start_button = $MarginContainer/VBoxContainer2/Start
 
@@ -14,8 +14,9 @@ func _ready():
 
 func _on_start_pressed():
 	var level_instance = levelOne.instantiate()
-	if subViewportContainer != null:
-		subViewportContainer.add_child(level_instance)
+	if mobileControls == true: $"../../MobileUI".visible = true
+	if subViewport != null:
+		subViewport.add_child(level_instance)
 	queue_free()
 	#get_tree().change_scene_to_packed(levelOne)
 

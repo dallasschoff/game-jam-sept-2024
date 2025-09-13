@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Incandescent"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="uid://bhwpcdxs0sf6b"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 run/size/viewport_height=144

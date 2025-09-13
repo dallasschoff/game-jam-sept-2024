@@ -21,7 +21,7 @@ func _ready():
 	##add_child(levelNode)
 	##current_level = levelNode
 	##main_menu.queue_free()
-
-func change_level(level_number: String):
-	var level: PackedScene = levels[level_number]
-	get_tree().change_scene_to_packed(level)
+#
+#func change_level(level_number: String):
+	#var level: PackedScene = levels[level_number]
+	#get_tree().change_scene_to_packed(level)

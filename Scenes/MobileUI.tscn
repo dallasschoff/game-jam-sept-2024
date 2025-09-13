@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf2mxd75tbd12"]
+
+[ext_resource type="Texture2D" uid="uid://bowhj72fn28hh" path="res://Assets/MobileUI.png" id="1_pvvcs"]
+
+[node name="MobileUI" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 160.0
+offset_bottom = 144.0
+color = Color(0.0196078, 0.121569, 0.223529, 1)
+
+[node name="UI" type="Sprite2D" parent="."]
+position = Vector2(80, 93)
+texture = ExtResource("1_pvvcs")
+
+[node name="D-Pad" type="Node" parent="."]
+
+[node name="Up" type="Sprite2D" parent="D-Pad"]
+
+[node name="Down" type="Sprite2D" parent="D-Pad"]
+
+[node name="Left" type="Sprite2D" parent="D-Pad"]
+
+[node name="Right" type="Sprite2D" parent="D-Pad"]
+
+[node name="A + B" type="Node" parent="."]
+
+[node name="A" type="Sprite2D" parent="A + B"]
+
+[node name="B" type="Sprite2D" parent="A + B"]
