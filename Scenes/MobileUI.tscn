@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf2mxd75tbd12"]
+[gd_scene load_steps=9 format=3 uid="uid://cf2mxd75tbd12"]
 
-[ext_resource type="Texture2D" uid="uid://bowhj72fn28hh" path="res://Assets/MobileUI.png" id="1_pvvcs"]
+[ext_resource type="Script" uid="uid://c6lcprrp8eohq" path="res://Scripts/mobile_UI.gd" id="1_chkgu"]
+[ext_resource type="Texture2D" uid="uid://b388bavfwvd5m" path="res://Assets/MobileUI.png" id="1_pvvcs"]
+[ext_resource type="Texture2D" uid="uid://m7et447ekpwg" path="res://Assets/aButton_unpressed.png" id="3_8klrj"]
+[ext_resource type="Texture2D" uid="uid://t27xw16hpbcs" path="res://Assets/aButton_pressed.png" id="4_sjvlj"]
+[ext_resource type="Texture2D" uid="uid://b2el5cfyup4di" path="res://Assets/bButton_unpressed.png" id="5_24cmd"]
+[ext_resource type="Texture2D" uid="uid://orovnvn35uoe" path="res://Assets/bButton_pressed.png" id="6_2by8a"]
 
-[node name="MobileUI" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so135"]
+size = Vector2(25, 77)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_itjh5"]
+radius = 16.0
+
+[node name="MobileUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_chkgu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 160.0
@@ -13,18 +27,63 @@ color = Color(0.0196078, 0.121569, 0.223529, 1)
 position = Vector2(80, 93)
 texture = ExtResource("1_pvvcs")
 
-[node name="D-Pad" type="Node" parent="."]
+[node name="D-Pad" type="Node2D" parent="."]
 
 [node name="Up" type="Sprite2D" parent="D-Pad"]
 
+[node name="UpButton" type="TouchScreenButton" parent="D-Pad"]
+position = Vector2(51, 44)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_so135")
+passby_press = true
+action = "move_up"
+
 [node name="Down" type="Sprite2D" parent="D-Pad"]
+
+[node name="DownButton" type="TouchScreenButton" parent="D-Pad"]
+position = Vector2(51, 96)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_so135")
+passby_press = true
+action = "move_down"
 
 [node name="Left" type="Sprite2D" parent="D-Pad"]
 
+[node name="LeftButton" type="TouchScreenButton" parent="D-Pad"]
+position = Vector2(25, 70)
+shape = SubResource("RectangleShape2D_so135")
+passby_press = true
+action = "move_left"
+
 [node name="Right" type="Sprite2D" parent="D-Pad"]
 
-[node name="A + B" type="Node" parent="."]
+[node name="RightButton" type="TouchScreenButton" parent="D-Pad"]
+position = Vector2(77, 70)
+shape = SubResource("RectangleShape2D_so135")
+passby_press = true
+action = "move_right"
+
+[node name="A + B" type="Node2D" parent="."]
 
 [node name="A" type="Sprite2D" parent="A + B"]
 
+[node name="AButton" type="TouchScreenButton" parent="A + B"]
+position = Vector2(117, 64)
+texture_normal = ExtResource("3_8klrj")
+texture_pressed = ExtResource("4_sjvlj")
+shape = SubResource("CircleShape2D_itjh5")
+passby_press = true
+action = "a_button"
+
 [node name="B" type="Sprite2D" parent="A + B"]
+
+[node name="BButton" type="TouchScreenButton" parent="A + B"]
+position = Vector2(88, 92)
+texture_normal = ExtResource("5_24cmd")
+texture_pressed = ExtResource("6_2by8a")
+shape = SubResource("CircleShape2D_itjh5")
+passby_press = true
+action = "b_button"
+
+[connection signal="pressed" from="D-Pad/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="A + B/AButton" to="." method="_on_a_button_pressed"]
