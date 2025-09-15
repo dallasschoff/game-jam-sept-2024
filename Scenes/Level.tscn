@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c1bcyc51cbbud" path="res://Scenes/Totem.tscn" id="9_0rysw"]
 [ext_resource type="PackedScene" uid="uid://s1gwjvgswweo" path="res://Scenes/Collectible.tscn" id="9_m2fvf"]
 [ext_resource type="Texture2D" uid="uid://jn8b8tp5p6nx" path="res://Assets/Door Animations.png" id="9_xknww"]
-[ext_resource type="Script" uid="uid://c6ch2whf2ntmv" path="res://Scripts/door.gd" id="10_k06c7"]
+[ext_resource type="Script" uid="uid://dnn1whn5jyem4" path="res://Scripts/door.gd" id="10_k06c7"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="11_3q7vl"]
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="14_h1r0n"]
 

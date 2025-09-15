@@ -4,12 +4,14 @@ var levelOne: PackedScene = load("res://Scenes/Level.tscn")
 var main_menu: PackedScene = load("res://Scenes/MainMenu.tscn")
 var current_level
 var levels = { "1": levelOne, "2": main_menu }
+@export var play_music = true
 
 func _ready():
 	#var x = (DisplayServer.screen_get_size().x * 0.625) / 2
 	#var y = DisplayServer.screen_get_size().y / 2
 	DisplayServer.window_set_size(Vector2i(160 * 5, 144 * 5))
 	#main_menu.connect("start_game", start_game)
+	Global.isMusicOn = play_music
 
 #func start_game():
 	#var level: PackedScene = levels["1"]

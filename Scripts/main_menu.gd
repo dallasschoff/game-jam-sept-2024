@@ -26,7 +26,7 @@ func _on_quit_pressed():
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		mobileControls = true
-		get_window().size.y = 288
+		get_window().content_scale_size = Vector2i(DisplayServer.window_get_size().x,DisplayServer.window_get_size().y  * 2)
 	if !toggled_on:
 		mobileControls = false
-		get_window().size.y = 144
+		get_window().content_scale_size = Vector2i(160, 144)

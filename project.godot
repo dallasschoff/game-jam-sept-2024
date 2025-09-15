@@ -19,11 +19,12 @@ run/size/viewport_height=144
 [autoload]
 
 Global="*res://Scripts/global.gd"
+SignalBus="*res://Scripts/signalBus.gd"
 
 [display]
 
 window/size/viewport_width=160
-window/size/viewport_height=288
+window/size/viewport_height=144
 window/stretch/mode="viewport"
 
 [dotnet]

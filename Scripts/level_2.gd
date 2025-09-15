@@ -25,7 +25,8 @@ func _ready():
 	player.camera.limit_top = limit_top
 	player.camera.limit_bottom = limit_bottom
 	
-	playMusic2()
+	if Global.isMusicOn:
+		playMusic2()
 
 func _process(delta):
 	# Inherited from parent scene
