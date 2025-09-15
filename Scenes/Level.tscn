@@ -186,6 +186,7 @@ loop = true
 
 [node name="Level 1" type="Node2D" groups=["Burnables", "Pulses"]]
 y_sort_enabled = true
+texture_filter = 1
 script = ExtResource("1_6lvft")
 
 [node name="Level Ground" type="Sprite2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cf2mxd75tbd12"]
 
 [ext_resource type="Script" uid="uid://c6lcprrp8eohq" path="res://Scripts/mobile_UI.gd" id="1_chkgu"]
-[ext_resource type="Texture2D" uid="uid://b388bavfwvd5m" path="res://Assets/MobileUI.png" id="1_pvvcs"]
+[ext_resource type="Texture2D" uid="uid://dcqxj753efxwh" path="res://Assets/MobileUI.png" id="1_pvvcs"]
 [ext_resource type="Texture2D" uid="uid://m7et447ekpwg" path="res://Assets/aButton_unpressed.png" id="3_8klrj"]
 [ext_resource type="Texture2D" uid="uid://t27xw16hpbcs" path="res://Assets/aButton_pressed.png" id="4_sjvlj"]
 [ext_resource type="Texture2D" uid="uid://b2el5cfyup4di" path="res://Assets/bButton_unpressed.png" id="5_24cmd"]
@@ -19,12 +19,13 @@ anchors_preset = 0
 script = ExtResource("1_chkgu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 160.0
 offset_bottom = 144.0
 color = Color(0.0196078, 0.121569, 0.223529, 1)
 
 [node name="UI" type="Sprite2D" parent="."]
-position = Vector2(80, 93)
+position = Vector2(80, 73)
 texture = ExtResource("1_pvvcs")
 
 [node name="D-Pad" type="Node2D" parent="."]
