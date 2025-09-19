@@ -191,7 +191,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 22.0
-offset_bottom = 22.0
+offset_bottom = -135.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -215,9 +215,11 @@ focus_previous = NodePath("../Quit")
 text = "Start Game"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_cmrfp")
+disabled = true
 text = "Mobile"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer2"]

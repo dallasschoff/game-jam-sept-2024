@@ -4,7 +4,6 @@ signal start_game
 var levelOne: PackedScene = load("res://Scenes/Level.tscn")
 var mobileControls
 @onready var subViewport = $"../../SubViewportContainer/SubViewport"
-
 @onready var start_button = $MarginContainer/VBoxContainer2/Start
 
 func _ready():
@@ -26,7 +25,8 @@ func _on_quit_pressed():
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		mobileControls = true
-		get_window().content_scale_size = Vector2i(DisplayServer.window_get_size().x,DisplayServer.window_get_size().y  * 2)
+		get_window().content_scale_size = Vector2i(DisplayServer.window_get_size().x,
+			DisplayServer.window_get_size().y * 2)
 	if !toggled_on:
 		mobileControls = false
 		get_window().content_scale_size = Vector2i(160, 144)

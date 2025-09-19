@@ -9,7 +9,7 @@ var levels = { "1": levelOne, "2": main_menu }
 func _ready():
 	#var x = (DisplayServer.screen_get_size().x * 0.625) / 2
 	#var y = DisplayServer.screen_get_size().y / 2
-	DisplayServer.window_set_size(Vector2i(160 * 5, 144 * 5))
+	#DisplayServer.window_set_size(Vector2i(160 * 5, 144 * 5))
 	#main_menu.connect("start_game", start_game)
 	Global.isMusicOn = play_music
 
