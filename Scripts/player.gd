@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-signal create_pulse(pulse_position)
+signal create_pulse(pulse_position) 
 signal transition_finished
 
 var light
