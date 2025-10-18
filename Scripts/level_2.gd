@@ -13,7 +13,7 @@ func _ready():
 	var currentLitTotems = 0
 	nextLevel = load("res://Scenes/EndScreen.tscn")
 	shaderMat = shader.material
-	player.connect("create_pulse", create_pulse)
+	#player.connect("create_pulse", create_pulse)
 	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
 	player.collectibleCounter = 0
@@ -38,21 +38,11 @@ func _process(delta):
 	shaderMat.set_shader_parameter("burnable_start_frames", burnable_start_frames)
 	shaderMat.set_shader_parameter("burnable_radii", burnable_radii)
 	shaderMat.set_shader_parameter("burnable_glow_speeds", burnable_glow_speeds)
-	shaderMat.set_shader_parameter("pulse_positions", pulse_positions)
+	#shaderMat.set_shader_parameter("pulse_positions", pulse_positions)
 	
 	# Updating door based on totem lit status
 	updateTotemDoor()
 	
-func create_pulse(pulse_position : Vector2):
-	shaderMat.set_shader_parameter("start_frame", Engine.get_process_frames())
-	var pulse = PulseScene.instantiate()
-	pulse.position = pulse_position
-	add_child(pulse)
-	var pulses = get_tree().get_nodes_in_group("Pulses")
-	if (len(pulses) > 2):
-		pulses[0].queue_free()
-	pulse_positions.remove_at(0)
-	pulse_positions.push_back(pulse_position)
 
 # Recurs through totems and lights up associated circle
 func updateTotemDoor():

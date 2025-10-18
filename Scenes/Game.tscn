@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cf2mxd75tbd12" path="res://Scenes/MobileUI.tscn" id="3_j5yw3"]
 
 [node name="Game" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_elrax")
+play_music = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

@@ -53,13 +53,15 @@ func _process(delta):
 	
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
-	velocity = direction * speed
+	if Global.fireDeleteMode == false:
+			velocity = direction * speed
 	move_and_slide()
-	if Input.is_action_just_pressed("a_button") and can_pulse:
-		create_pulse.emit(position)
+	#A Button creates pulse if in normal mode
+	if Input.is_action_just_pressed("a_button") and can_pulse and Global.fireDeleteMode == false:
+		Global.pulseCollection.create_pulse(position)
 		can_pulse = false
 		pulse_cooldown_timer.start()
-
+	
 func update_animation_parameters():
 	animation_tree["parameters/conditions/idle"] = true if velocity == Vector2.ZERO else false
 	animation_tree["parameters/conditions/is_walking"] = true if velocity != Vector2.ZERO else false

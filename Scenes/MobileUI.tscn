@@ -1,12 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf2mxd75tbd12"]
+[gd_scene load_steps=17 format=3 uid="uid://cf2mxd75tbd12"]
 
 [ext_resource type="Texture2D" uid="uid://dcqxj753efxwh" path="res://Assets/MobileUI.png" id="1_pvvcs"]
 [ext_resource type="Script" uid="uid://cqqbghm5e32yf" path="res://Scripts/mobile_UI.gd" id="1_sjvlj"]
 [ext_resource type="Texture2D" uid="uid://m7et447ekpwg" path="res://Assets/aButton_unpressed.png" id="3_8klrj"]
+[ext_resource type="Texture2D" uid="uid://c2ec35xgxeui8" path="res://Assets/PulseQueue UI.png" id="3_24cmd"]
 [ext_resource type="Texture2D" uid="uid://d1uw451ucdd2v" path="res://Assets/MobileUIAnimation.png" id="3_sjvlj"]
+[ext_resource type="PackedScene" uid="uid://b6tmdk1bg0wr6" path="res://Scenes/SelectorIcon.tscn" id="4_2by8a"]
 [ext_resource type="Texture2D" uid="uid://t27xw16hpbcs" path="res://Assets/aButton_pressed.png" id="4_sjvlj"]
 [ext_resource type="Texture2D" uid="uid://b2el5cfyup4di" path="res://Assets/bButton_unpressed.png" id="5_24cmd"]
+[ext_resource type="Texture2D" uid="uid://b5oa2yn0gs4hw" path="res://Assets/PulseQueueArrows.png" id="5_decbf"]
 [ext_resource type="Texture2D" uid="uid://orovnvn35uoe" path="res://Assets/bButton_pressed.png" id="6_2by8a"]
+[ext_resource type="Texture2D" uid="uid://c7t67081bv07e" path="res://Assets/deleteButton_unpressed.png" id="9_2bfrg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bfrg"]
+atlas = ExtResource("5_decbf")
+region = Rect2(0, 0, 312, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0b73"]
+atlas = ExtResource("5_decbf")
+region = Rect2(0, 144, 312, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imw4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bfrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0b73")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_so135"]
 size = Vector2(25, 77)
@@ -26,10 +52,23 @@ offset_bottom = 144.0
 color = Color(0.0196078, 0.121569, 0.223529, 1)
 
 [node name="UI" type="Sprite2D" parent="."]
-position = Vector2(80, 73)
+position = Vector2(80, 72)
 texture = ExtResource("1_pvvcs")
 
+[node name="PulseQueueUi" type="Sprite2D" parent="UI"]
+texture = ExtResource("3_24cmd")
+
+[node name="SelectorIcon" parent="UI" instance=ExtResource("4_2by8a")]
+position = Vector2(35, -58)
+animation = &"default"
+
+[node name="PulseQueueUiArrows" type="AnimatedSprite2D" parent="UI"]
+position = Vector2(76, 0)
+sprite_frames = SubResource("SpriteFrames_imw4d")
+autoplay = "default"
+
 [node name="D-Pad" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
 texture = ExtResource("3_sjvlj")
 offset = Vector2(80, 73)
 hframes = 4
@@ -63,16 +102,17 @@ action = "move_right"
 
 [node name="A + B" type="Node2D" parent="."]
 
-[node name="A" type="Sprite2D" parent="A + B"]
-
 [node name="AButton" type="TouchScreenButton" parent="A + B"]
-position = Vector2(117, 64)
+position = Vector2(117, 63)
 texture_normal = ExtResource("3_8klrj")
 texture_pressed = ExtResource("4_sjvlj")
 shape = SubResource("CircleShape2D_itjh5")
 action = "a_button"
 
-[node name="B" type="Sprite2D" parent="A + B"]
+[node name="DeleteButton" type="Sprite2D" parent="A + B"]
+visible = false
+position = Vector2(135, 80.5)
+texture = ExtResource("9_2bfrg")
 
 [node name="BButton" type="TouchScreenButton" parent="A + B"]
 position = Vector2(88, 92)
@@ -80,3 +120,6 @@ texture_normal = ExtResource("5_24cmd")
 texture_pressed = ExtResource("6_2by8a")
 shape = SubResource("CircleShape2D_itjh5")
 action = "b_button"
+
+[connection signal="animation_finished" from="UI/SelectorIcon" to="." method="_on_selector_icon_animation_finished"]
+[connection signal="pressed" from="A + B/BButton" to="." method="_toggle_delete_mode"]

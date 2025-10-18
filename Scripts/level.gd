@@ -13,7 +13,6 @@ var PulseScene: PackedScene = load("res://Scenes/Pulse.tscn")
 
 var player_position : Vector2;
 var shaderMat
-var pulse_positions : Array[Vector2] = [ Vector2(-500, -500), Vector2(-500, -500) ]
 var burnable_positions : Array[Vector2]
 var burnable_states : Array[bool]
 var burnable_start_frames : Array[float]
@@ -21,8 +20,9 @@ var burnable_radii : Array[float]
 var burnable_glow_speeds : Array[float]
 
 func _ready():
+	Global.level = self
 	shaderMat = shader.material
-	player.connect("create_pulse", create_pulse)
+	#player.connect("create_pulse", create_pulse)
 	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
 	player.collectibleCounter = 0
@@ -40,19 +40,8 @@ func _process(delta):
 	shaderMat.set_shader_parameter("burnable_start_frames", burnable_start_frames)
 	shaderMat.set_shader_parameter("burnable_radii", burnable_radii)
 	shaderMat.set_shader_parameter("burnable_glow_speeds", burnable_glow_speeds)
+	var pulse_positions = Global.pulseCollection._get_pulse_positions()
 	shaderMat.set_shader_parameter("pulse_positions", pulse_positions)
-
-func create_pulse(pulse_position : Vector2):
-	shaderMat.set_shader_parameter("start_frame", Engine.get_process_frames())
-	var pulse = PulseScene.instantiate()
-	pulse.position = pulse_position
-	add_child(pulse)
-	var pulses = get_tree().get_nodes_in_group("Pulses")
-	pulses.remove_at(0)
-	if (len(pulses) > 2):
-		pulses[0].queue_free()
-	pulse_positions.remove_at(0)
-	pulse_positions.push_back(pulse_position)
 
 #Get new information on whether a given burnable on the level is lit and its position in the level
 func update_burnables():
@@ -74,14 +63,12 @@ func _on_level_end_area_entered(area):
 	if area.get_parent() is Player:
 		player.increment_radius = false
 
-
 func playMusic():
 	await get_tree().create_timer(1).timeout
 	music.volume_db = -20
 	music.play()
 	var fadeIn = get_tree().create_tween()
 	fadeIn.tween_property(music,"volume_db",0,1.5)
-
 
 func change_level():
 	music.stop()

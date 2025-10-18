@@ -4,6 +4,11 @@ extends Node
 
 var mainMenu
 var isMusicOn
+var mobileUI
+var level
+var pulseCollection : PulseCollection = PulseCollection.new()
+var pulses : Array 
+var fireDeleteMode = false
 
 ## Examples:
 ## const MAX_HEALTH

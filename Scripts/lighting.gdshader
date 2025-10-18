@@ -12,7 +12,7 @@ uniform bool[burnable_count] burnable_states;
 uniform float[burnable_count] burnable_start_frames;
 uniform float[burnable_count] burnable_radii;
 uniform float[burnable_count] burnable_glow_speeds;
-uniform vec2[2] pulse_positions;
+uniform vec2[3] pulse_positions;
 
 uniform vec4 blue = vec4(0.02,0.122,0.224,1);
 uniform vec4 purple = vec4(0.29,0.141,0.502,1);
@@ -82,7 +82,8 @@ void fragment() {
 	//Pulse light------------------------------------
 	for (int i = 0; i < pulse_positions.length(); i++) {
 		vec2 pulse_position = pulse_positions[i];
-		if (i == 0) {
+		//Remain and "breathe" for pulses placed previously
+		if (i != 0) {
 			if (distance(wpUV,pulse_position) < (flicker + max_radius+8.0) && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
 				COLOR = vec4(1,1,1,0);
 			}
@@ -94,6 +95,7 @@ void fragment() {
 			if (distance(wpUV,pulse_position) < (flicker + max_radius)) {
 				COLOR = vec4(1,1,1,0);
 			}
+		//Expand for the newly placed pulse
 		} else {
 			if (distance(wpUV,pulse_position) < pulse_radius3 && ((mod(wpUV.x - pulse_position.x,2.0)<1.0)&&(mod(wpUV.y - pulse_position.y,2.0))<1.0)) {
 				COLOR = vec4(1,1,1,0);

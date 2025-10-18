@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dut0nb0k5wwce"]
+[gd_scene load_steps=17 format=3 uid="uid://dut0nb0k5wwce"]
 
 [ext_resource type="Script" uid="uid://bin30sj2qq4d4" path="res://Scripts/pulse.gd" id="1_0sk0e"]
 [ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_i6asb"]
 [ext_resource type="Script" uid="uid://dadh66uev0r2j" path="res://Scripts/ripple.gd" id="3_80qi5"]
+[ext_resource type="PackedScene" uid="uid://b6tmdk1bg0wr6" path="res://Scenes/SelectorIcon.tscn" id="3_ta22r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thsxp"]
 atlas = ExtResource("2_i6asb")
@@ -83,10 +84,14 @@ radius = 23.0
 [node name="Pulse" type="Node2D"]
 script = ExtResource("1_0sk0e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vuth7")
 animation = &"pulse_ground_fire"
 frame_progress = 0.575841
+
+[node name="SelectorIcon" parent="." instance=ExtResource("3_ta22r")]
+visible = true
+animation = &"default"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
