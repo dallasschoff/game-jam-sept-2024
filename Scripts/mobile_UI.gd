@@ -52,6 +52,7 @@ func _process(delta: float) -> void:
 	if fireDeleteMode == true:
 		_fire_delete_mode()
 		$"A + B/DeleteButton".visible = true
+		$"A + B/DeleteButton".rotation_degrees = $"A + B/DeleteButton".rotation_degrees + 2
 
 	
 	if fireDeleteMode == false:

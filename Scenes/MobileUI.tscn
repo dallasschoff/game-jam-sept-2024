@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2el5cfyup4di" path="res://Assets/bButton_unpressed.png" id="5_24cmd"]
 [ext_resource type="Texture2D" uid="uid://b5oa2yn0gs4hw" path="res://Assets/PulseQueueArrows.png" id="5_decbf"]
 [ext_resource type="Texture2D" uid="uid://orovnvn35uoe" path="res://Assets/bButton_pressed.png" id="6_2by8a"]
-[ext_resource type="Texture2D" uid="uid://c7t67081bv07e" path="res://Assets/deleteButton_unpressed.png" id="9_2bfrg"]
+[ext_resource type="Texture2D" uid="uid://cmv4bf7krs8vd" path="res://Assets/deleteButton_unpressed.png" id="9_2bfrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bfrg"]
 atlas = ExtResource("5_decbf")
