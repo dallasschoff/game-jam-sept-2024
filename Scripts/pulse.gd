@@ -28,6 +28,7 @@ func _play_delete_anim(): #Called by MobileUI
 func _play_disappear_anim():
 	selectorIconInstance = selectorIconInstancer.instantiate() 
 	get_parent().get_parent().add_child(selectorIconInstance)
+	selectorIconInstance.isInstance = true
 	selectorIconInstance.visible = true
 	selectorIconInstance.position = position
 	selectorIconInstance.play("disappear")

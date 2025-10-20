@@ -61,6 +61,9 @@ func _physics_process(delta):
 		Global.pulseCollection.create_pulse(position)
 		can_pulse = false
 		pulse_cooldown_timer.start()
+	#B Button toggles fire Delete Mode
+	if Input.is_action_just_pressed("b_button"):
+		Global.mobileUI._toggle_delete_mode()
 	
 func update_animation_parameters():
 	animation_tree["parameters/conditions/idle"] = true if velocity == Vector2.ZERO else false

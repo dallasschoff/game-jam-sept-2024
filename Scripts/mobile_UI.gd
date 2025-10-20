@@ -29,6 +29,7 @@ var trash = Vector2(147, 28)
 
 
 var fireDeleteMode : bool = false
+var canDisappear = false
 @onready var selectorIcon = $UI/SelectorIcon
 var canMove
 var slot1Pos = Vector2(35.0, -58.0)
@@ -43,7 +44,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_dpad_visuals()
 	
-	
 	#A Button Confirms deleting a fire if in fireDeleteMode
 		#Need just_released or else you'll create a fire while deleting a fire
 	if fireDeleteMode and Input.is_action_just_released("a_button"):
@@ -53,10 +53,11 @@ func _process(delta: float) -> void:
 		_fire_delete_mode()
 		$"A + B/DeleteButton".visible = true
 		$"A + B/DeleteButton".rotation_degrees = $"A + B/DeleteButton".rotation_degrees + 2
-
+		$"LR Buttons".visible = true
 	
 	if fireDeleteMode == false:
 		$"A + B/DeleteButton".visible = false
+		$"LR Buttons".visible = false
 
 		if Global.pulseCollection.pulses[0] != null:
 			Global.pulseCollection.pulses[0].selectorIcon.visible = false
@@ -71,6 +72,8 @@ func _toggle_delete_mode():
 	
 	#Selector Animations 
 	if !fireDeleteMode:
+		selectorIcon.stop()
+		selectorIcon.play("disappear")
 		if Global.pulseCollection.pulses[0] != null:
 			if selectorIcon.position == slot1Pos:
 				Global.pulses[0]._play_disappear_anim()
@@ -82,6 +85,8 @@ func _toggle_delete_mode():
 				Global.pulses[2]._play_disappear_anim()
 	if fireDeleteMode:
 		selectorIcon.position = slot1Pos
+		selectorIcon.stop()
+		selectorIcon.play("appear")
 		if Global.pulseCollection.pulses[0] != null:
 			if selectorIcon.position == slot1Pos:
 				Global.pulses[0].selectorIcon.play("appear")
@@ -92,15 +97,21 @@ func _toggle_delete_mode():
 			if selectorIcon.position == slot3Pos:
 				Global.pulses[2].selectorIcon.play("appear")
 		
-	if selectorIcon.visible == true:
-		selectorIcon.play("disappear")
-	if selectorIcon.visible == false:
-		selectorIcon.visible = true
-		selectorIcon.play("appear")
+	#if selectorIcon.visible == true and canDisappear:
+		#selectorIcon.play("disappear")
+	#if selectorIcon.visible == false and !canDisappear:
+		#selectorIcon.visible = true
+		#selectorIcon.play("appear")
+		#canDisappear = true
 	
 func _on_selector_icon_animation_finished() -> void:
-	if selectorIcon.animation == "disappear":
-		selectorIcon.visible == false
+	pass
+	#if selectorIcon.animation == "appear":
+		#selectorIcon.visible == true
+		#canDisappear = true
+	#if selectorIcon.animation == "disappear":
+		#selectorIcon.visible == false
+		#canDisappear = false
 
 func _fire_delete_mode():
 #Left / Right movements along the three UI slots.
