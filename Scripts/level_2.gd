@@ -10,11 +10,11 @@ var doorOpened : bool = false
 signal allTotemsLit
 
 func _ready():
+	Global.level = self
+	shaderMat = shader.material
 	var currentLitTotems = 0
 	nextLevel = load("res://Scenes/EndScreen.tscn")
 	shaderMat = shader.material
-	#player.connect("create_pulse", create_pulse)
-	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
 	player.collectibleCounter = 0
 	var collectibles = get_tree().get_nodes_in_group("Collectibles")
@@ -29,7 +29,6 @@ func _ready():
 		playMusic2()
 
 func _process(delta):
-	# Inherited from parent scene
 	shaderMat.set_shader_parameter("player_position", player.position)
 	shaderMat.set_shader_parameter("current_frame", Engine.get_process_frames())
 	update_burnables()
@@ -38,11 +37,11 @@ func _process(delta):
 	shaderMat.set_shader_parameter("burnable_start_frames", burnable_start_frames)
 	shaderMat.set_shader_parameter("burnable_radii", burnable_radii)
 	shaderMat.set_shader_parameter("burnable_glow_speeds", burnable_glow_speeds)
-	#shaderMat.set_shader_parameter("pulse_positions", pulse_positions)
+	var pulse_positions = Global.pulseCollection._get_pulse_positions()
+	shaderMat.set_shader_parameter("pulse_positions", pulse_positions)
 	
 	# Updating door based on totem lit status
 	updateTotemDoor()
-	
 
 # Recurs through totems and lights up associated circle
 func updateTotemDoor():
