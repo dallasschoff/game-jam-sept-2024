@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c6fjtchel1kkp" path="res://Scenes/RockB.tscn" id="12_idtq4"]
 [ext_resource type="Texture2D" uid="uid://de3mkdej8fjfm" path="res://Assets/Door Front Piece.png" id="12_vn1kw"]
 [ext_resource type="PackedScene" uid="uid://cnwwdpcqiih1m" path="res://Scenes/RockC.tscn" id="13_ccuec"]
-[ext_resource type="Script" uid="uid://d3rujd6x4cmt" path="res://Scripts/door_2.gd" id="13_kdac6"]
+[ext_resource type="Script" uid="uid://cljkwllauh1ra" path="res://Scripts/door_2.gd" id="13_kdac6"]
 [ext_resource type="PackedScene" uid="uid://s1gwjvgswweo" path="res://Scenes/Collectible.tscn" id="14_gxie0"]
 [ext_resource type="AudioStream" uid="uid://si8exb26xhit" path="res://Assets/Sounds/doorOpen.wav" id="14_nyroq"]
 
