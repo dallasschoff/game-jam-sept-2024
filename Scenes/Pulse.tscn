@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dut0nb0k5wwce"]
+[gd_scene load_steps=22 format=3 uid="uid://dut0nb0k5wwce"]
 
 [ext_resource type="Script" uid="uid://bin30sj2qq4d4" path="res://Scripts/pulse.gd" id="1_0sk0e"]
 [ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_i6asb"]
 [ext_resource type="Script" uid="uid://dadh66uev0r2j" path="res://Scripts/ripple.gd" id="3_80qi5"]
+[ext_resource type="Texture2D" uid="uid://cgjfeek6u5wot" path="res://Assets/particle.png" id="3_jkf0w"]
 [ext_resource type="PackedScene" uid="uid://b6tmdk1bg0wr6" path="res://Scenes/SelectorIcon.tscn" id="3_ta22r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thsxp"]
@@ -76,6 +77,41 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Curve" id="Curve_lpaga"]
+_data = [Vector2(0.610638, 0.496396), 0.0, 0.0248324, 0, 0, Vector2(0.974468, 0.861802), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qthhx"]
+curve = SubResource("Curve_lpaga")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jkf0w"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 23.0
+emission_ring_inner_radius = 23.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.2
+radial_velocity_curve = SubResource("CurveTexture_qthhx")
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pw4xo"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 23.0
+emission_ring_inner_radius = 23.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 0)
+orbit_velocity_min = -0.2
+orbit_velocity_max = -0.0999999
+radial_velocity_curve = SubResource("CurveTexture_qthhx")
+gravity = Vector3(0, 0, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwpu6"]
 radius = 23.0
 
@@ -88,6 +124,18 @@ script = ExtResource("1_0sk0e")
 sprite_frames = SubResource("SpriteFrames_vuth7")
 animation = &"pulse_ground_fire"
 frame_progress = 0.575841
+
+[node name="ParticlesCntrCW" type="GPUParticles2D" parent="."]
+z_index = 3
+texture = ExtResource("3_jkf0w")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_jkf0w")
+
+[node name="ParticlesCW" type="GPUParticles2D" parent="."]
+z_index = 3
+texture = ExtResource("3_jkf0w")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_pw4xo")
 
 [node name="SelectorIcon" parent="." instance=ExtResource("3_ta22r")]
 visible = true
