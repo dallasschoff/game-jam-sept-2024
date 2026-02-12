@@ -25,7 +25,6 @@ func create_pulse(pulse_position : Vector2): #Called by signal in player.gd
 		var scaleTween = Global.level.get_tree().create_tween()
 		scaleTween.tween_property(pulses[3], "scale", Vector2(0.1,0.1), 0.5)
 		scaleTween.tween_callback(_remove_oldest_pulse)
-	Global.pulses = pulses
 	#Better way of priting pulses
 	#for i in pulses:
 		#if i != null:
@@ -39,7 +38,6 @@ func _remove_oldest_pulse():
 		pulses[3].queue_free()
 		Global.mobileUI._remove_pulse_fire_ui()
 	pulses.remove_at(3)#[3] = null #This used to be remove_at(), but we want to keep the size at 3
-	Global.pulses = pulses
 	print("pulses",pulses)
 	#Better way of priting pulses
 	#var pulsesPrint = []

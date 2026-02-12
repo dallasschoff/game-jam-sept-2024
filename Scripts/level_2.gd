@@ -12,7 +12,7 @@ signal allTotemsLit
 func _ready():
 	Global.level = self
 	shaderMat = shader.material
-	var currentLitTotems = 0
+	currentLitTotems = 0
 	nextLevel = load("res://Scenes/EndScreen.tscn")
 	shaderMat = shader.material
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)

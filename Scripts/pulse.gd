@@ -14,7 +14,7 @@ func _ready():
 	add_to_group("Pulses")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta) -> void:
 	animated_sprite.play("pulse_ground_fire")
 
 func _play_delete_anim(): #Called by MobileUI

@@ -76,26 +76,26 @@ func _toggle_delete_mode():
 		selectorIcon.play("disappear")
 		if Global.pulseCollection.pulses[0] != null:
 			if selectorIcon.position == slot1Pos:
-				Global.pulses[0]._play_disappear_anim()
+				Global.pulseCollection.pulses[0]._play_disappear_anim()
 		if Global.pulseCollection.pulses[1] != null:
 			if selectorIcon.position == slot2Pos:
-				Global.pulses[1]._play_disappear_anim()
+				Global.pulseCollection.pulses[1]._play_disappear_anim()
 		if Global.pulseCollection.pulses[2] != null:
 			if selectorIcon.position == slot3Pos:
-				Global.pulses[2]._play_disappear_anim()
+				Global.pulseCollection.pulses[2]._play_disappear_anim()
 	if fireDeleteMode:
 		selectorIcon.position = slot1Pos
 		selectorIcon.stop()
 		selectorIcon.play("appear")
 		if Global.pulseCollection.pulses[0] != null:
 			if selectorIcon.position == slot1Pos:
-				Global.pulses[0].selectorIcon.play("appear")
+				Global.pulseCollection.pulses[0].selectorIcon.play("appear")
 		if Global.pulseCollection.pulses[1] != null:
 			if selectorIcon.position == slot2Pos:
-				Global.pulses[1].selectorIcon.play("appear")
+				Global.pulseCollection.pulses[1].selectorIcon.play("appear")
 		if Global.pulseCollection.pulses[2] != null:
 			if selectorIcon.position == slot3Pos:
-				Global.pulses[2].selectorIcon.play("appear")
+				Global.pulseCollection.pulses[2].selectorIcon.play("appear")
 		
 	#if selectorIcon.visible == true and canDisappear:
 		#selectorIcon.play("disappear")
@@ -157,21 +157,21 @@ func _fire_delete_mode():
 func _delete_fire():
 	if selectorIcon.position == slot1Pos:
 		if Global.pulseCollection.pulses[0] != null:
-			Global.pulses[0]._play_delete_anim()
+			Global.pulseCollection.pulses[0]._play_delete_anim()
 			Global.pulseCollection._remove_pulse_at(0)
 		selectorIcon.play("delete")
 		if pulseFireInUISlot1 != null:
 			pulseFireInUISlot1.queue_free()
 	if selectorIcon.position == slot2Pos:
 		if Global.pulseCollection.pulses[1] != null:
-			Global.pulses[1]._play_delete_anim()
+			Global.pulseCollection.pulses[1]._play_delete_anim()
 			Global.pulseCollection._remove_pulse_at(1)
 		selectorIcon.play("delete")
 		if pulseFireInUISlot2 != null:
 			pulseFireInUISlot2.queue_free()
 	if selectorIcon.position == slot3Pos:
 		if Global.pulseCollection.pulses[2] != null:
-			Global.pulses[2]._play_delete_anim()
+			Global.pulseCollection.pulses[2]._play_delete_anim()
 			Global.pulseCollection._remove_pulse_at(2)
 		selectorIcon.play("delete")
 		if pulseFireInUISlot3 != null:
