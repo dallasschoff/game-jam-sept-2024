@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctcybofon8lm8"]
+
+[ext_resource type="Texture2D" uid="uid://cewvnbryogm32" path="res://Assets/PulseFireUIFrames.png" id="1_26ysb"]
+[ext_resource type="Script" uid="uid://crwq0v048mgu6" path="res://Scripts/fading_fire.gd" id="2_efb5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnivw"]
+atlas = ExtResource("1_26ysb")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45e2f"]
+atlas = ExtResource("1_26ysb")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg7ai"]
+atlas = ExtResource("1_26ysb")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n67be"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnivw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45e2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg7ai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FadingFire" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_n67be")
+autoplay = "default"
+frame_progress = 0.778908
+script = ExtResource("2_efb5x")

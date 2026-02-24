@@ -22,7 +22,6 @@ var burnable_glow_speeds : Array[float]
 func _ready():
 	Global.level = self
 	shaderMat = shader.material
-	#player.connect("create_pulse", create_pulse)
 	player.connect("transition_finished", change_level)
 	shaderMat.set_shader_parameter("pulseSpeed", pulseSpeed)
 	player.collectibleCounter = 0

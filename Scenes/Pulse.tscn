@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bin30sj2qq4d4" path="res://Scripts/pulse.gd" id="1_0sk0e"]
 [ext_resource type="Texture2D" uid="uid://etb27aar85mu" path="res://Assets/Pulse Fire Animations.png" id="2_i6asb"]
-[ext_resource type="Script" uid="uid://dadh66uev0r2j" path="res://Scripts/ripple.gd" id="3_80qi5"]
+[ext_resource type="Script" uid="uid://m0sth8k5kova" path="res://Scripts/ripple.gd" id="3_80qi5"]
 [ext_resource type="Texture2D" uid="uid://cgjfeek6u5wot" path="res://Assets/particle.png" id="3_jkf0w"]
 [ext_resource type="PackedScene" uid="uid://b6tmdk1bg0wr6" path="res://Scenes/SelectorIcon.tscn" id="3_ta22r"]
 
@@ -139,7 +139,6 @@ process_material = SubResource("ParticleProcessMaterial_pw4xo")
 
 [node name="SelectorIcon" parent="." instance=ExtResource("3_ta22r")]
 visible = true
-animation = &"default"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3

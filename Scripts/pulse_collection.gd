@@ -5,6 +5,7 @@ class_name PulseCollection
 var pulses : Array[Pulse] = [null,null,null]
 
 var PulseScene: PackedScene = load("res://Scenes/Pulse.tscn")
+var FadingFireScene: PackedScene = load("res://Scenes/FadingFire.tscn")
 
 func create_pulse(pulse_position : Vector2): #Called by signal in player.gd
 	Global.level.shaderMat.set_shader_parameter("start_frame", Engine.get_process_frames())
@@ -20,11 +21,7 @@ func create_pulse(pulse_position : Vector2): #Called by signal in player.gd
 		#Global.mobileUI._update_pulse_fire_ui(3)
 	if (len(pulses) > 3):
 		##Remove the first pulse in the group
-		#Global.mobileUI._update_pulse_fire_ui(4)
-		#Shrink the fire away
-		var scaleTween = Global.level.get_tree().create_tween()
-		scaleTween.tween_property(pulses[3], "scale", Vector2(0.1,0.1), 0.5)
-		scaleTween.tween_callback(_remove_oldest_pulse)
+		_remove_oldest_pulse()
 	#Better way of priting pulses
 	#for i in pulses:
 		#if i != null:
@@ -35,6 +32,7 @@ func create_pulse(pulse_position : Vector2): #Called by signal in player.gd
 
 func _remove_oldest_pulse():
 	if pulses[3] != null:
+		_add_fading_fire(pulses[3].position)
 		pulses[3].queue_free()
 		Global.mobileUI._remove_pulse_fire_ui()
 	pulses.remove_at(3)#[3] = null #This used to be remove_at(), but we want to keep the size at 3
@@ -64,6 +62,7 @@ func _add_pulse(pulse : Pulse): #Called by Player
 
 func _remove_pulse_at(index): #Called by MobileUI when in fireDeleteMode
 	if pulses[index] != null:
+		_add_fading_fire(pulses[index].position)
 		pulses[index].queue_free()
 	pulses[index] = null #This used to be remove_at(), but we want to keep the size at 3
 	Global.mobileUI._remove_pulse_fire_ui()
@@ -97,3 +96,8 @@ func _get_pulse_positions() -> Array[Vector2]:
 		positions[i] = pulses[i].position
 	#print("pulse_positions",positions)
 	return positions
+
+func _add_fading_fire(remove_position: Vector2):
+	var fadingFire = FadingFireScene.instantiate()
+	fadingFire.position = remove_position
+	Global.level.add_child(fadingFire)
